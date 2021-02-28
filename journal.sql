@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Фев 28 2021 г., 14:55
+-- Время создания: Фев 28 2021 г., 16:16
 -- Версия сервера: 10.4.8-MariaDB
 -- Версия PHP: 7.3.11
 
@@ -29,11 +29,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `attendance` (
-  `AttendanceID` int(11) NOT NULL,
-  `StudentID` int(11) NOT NULL,
-  `Date` date NOT NULL,
-  `LessonID` int(11) NOT NULL,
-  `Presence` tinyint(1) NOT NULL
+  `attendance_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `lesson_id` int(11) NOT NULL,
+  `presence` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -43,15 +43,15 @@ CREATE TABLE `attendance` (
 --
 
 CREATE TABLE `groups` (
-  `GroupID` int(11) NOT NULL,
-  `Name` text NOT NULL
+  `group_id` int(11) NOT NULL,
+  `name` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Дамп данных таблицы `groups`
 --
 
-INSERT INTO `groups` (`GroupID`, `Name`) VALUES
+INSERT INTO `groups` (`group_id`, `name`) VALUES
 (1, 'ПИ-1-17-1'),
 (2, 'ПИ-1-18-1'),
 (3, 'ПИ-1-19-1'),
@@ -76,16 +76,16 @@ INSERT INTO `groups` (`GroupID`, `Name`) VALUES
 --
 
 CREATE TABLE `lessons` (
-  `LessonID` int(11) NOT NULL,
-  `Name` text NOT NULL,
-  `Hours` int(11) NOT NULL
+  `lesson_id` int(11) NOT NULL,
+  `name` text NOT NULL,
+  `hours` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Дамп данных таблицы `lessons`
 --
 
-INSERT INTO `lessons` (`LessonID`, `Name`, `Hours`) VALUES
+INSERT INTO `lessons` (`lesson_id`, `name`, `hours`) VALUES
 (1, 'История', 144),
 (2, 'Философия', 144),
 (3, 'Иностранный язык', 360),
@@ -162,12 +162,31 @@ INSERT INTO `lessons` (`LessonID`, `Name`, `Hours`) VALUES
 --
 
 CREATE TABLE `marks` (
-  `MarkID` int(11) NOT NULL,
-  `StudentID` int(11) NOT NULL,
-  `Mark` int(11) NOT NULL,
-  `Date` date NOT NULL,
-  `LessonID` int(11) NOT NULL
+  `mark_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `mark` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `lesson_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `roles`
+--
+
+CREATE TABLE `roles` (
+  `role_id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Дамп данных таблицы `roles`
+--
+
+INSERT INTO `roles` (`role_id`, `name`) VALUES
+(1, 'user'),
+(2, 'admin');
 
 -- --------------------------------------------------------
 
@@ -176,12 +195,12 @@ CREATE TABLE `marks` (
 --
 
 CREATE TABLE `schedule` (
-  `ScheduleID` int(11) NOT NULL,
-  `Day` int(11) NOT NULL,
-  `LessonID` int(11) NOT NULL,
-  `Auditorium` text NOT NULL,
-  `Time` time NOT NULL,
-  `TeacherID` int(11) NOT NULL
+  `schedule_id` int(11) NOT NULL,
+  `day` int(11) NOT NULL,
+  `lesson_id` int(11) NOT NULL,
+  `auditorium` text NOT NULL,
+  `time` time NOT NULL,
+  `teacher_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -191,18 +210,18 @@ CREATE TABLE `schedule` (
 --
 
 CREATE TABLE `students` (
-  `StudentID` int(11) NOT NULL,
-  `SecondName` text NOT NULL,
-  `Name` text NOT NULL,
-  `Patronymic` text NOT NULL,
-  `GroupID` int(11) NOT NULL
+  `student_id` int(11) NOT NULL,
+  `second_name` text NOT NULL,
+  `name` text NOT NULL,
+  `patronymic` text NOT NULL,
+  `group_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Дамп данных таблицы `students`
 --
 
-INSERT INTO `students` (`StudentID`, `SecondName`, `Name`, `Patronymic`, `GroupID`) VALUES
+INSERT INTO `students` (`student_id`, `second_name`, `name`, `patronymic`, `group_id`) VALUES
 (201, 'Платонов', 'Никита', 'Сергеевич', 1),
 (202, 'Brennan', 'Blossom', 'Zachery', 12),
 (203, 'Deleon', 'Kyra', 'Victor', 10),
@@ -312,17 +331,17 @@ INSERT INTO `students` (`StudentID`, `SecondName`, `Name`, `Patronymic`, `GroupI
 --
 
 CREATE TABLE `teachers` (
-  `TeacherID` int(11) NOT NULL,
+  `teacher_id` int(11) NOT NULL,
   `second_name` varchar(255) DEFAULT NULL,
-  `Name` text NOT NULL,
-  `Patronymic` text NOT NULL
+  `name` text NOT NULL,
+  `patronymic` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Дамп данных таблицы `teachers`
 --
 
-INSERT INTO `teachers` (`TeacherID`, `second_name`, `Name`, `Patronymic`) VALUES
+INSERT INTO `teachers` (`teacher_id`, `second_name`, `name`, `patronymic`) VALUES
 (1, 'Абасова', 'Наталья', 'Иннокентьевна'),
 (2, 'Алексеева', 'Татьяна', 'Леонидовна'),
 (3, 'Аршинский', 'Леонид', 'Вадимович'),
@@ -357,11 +376,38 @@ INSERT INTO `teachers` (`TeacherID`, `second_name`, `Name`, `Patronymic`) VALUES
 --
 
 CREATE TABLE `users` (
-  `UserID` int(11) NOT NULL,
-  `Login` text NOT NULL,
-  `Password` text NOT NULL,
-  `TeacherID` int(11) NOT NULL
+  `user_id` int(11) NOT NULL,
+  `login` text NOT NULL,
+  `password` text NOT NULL,
+  `teacher_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Дамп данных таблицы `users`
+--
+
+INSERT INTO `users` (`user_id`, `login`, `password`, `teacher_id`) VALUES
+(1, 'test1', 'pass1', 1),
+(2, 'test2', 'pass2', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `user_roles`
+--
+
+CREATE TABLE `user_roles` (
+  `user_id` int(11) NOT NULL,
+  `role_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Дамп данных таблицы `user_roles`
+--
+
+INSERT INTO `user_roles` (`user_id`, `role_id`) VALUES
+(1, 1),
+(2, 2);
 
 --
 -- Индексы сохранённых таблиц
@@ -371,57 +417,70 @@ CREATE TABLE `users` (
 -- Индексы таблицы `attendance`
 --
 ALTER TABLE `attendance`
-  ADD PRIMARY KEY (`AttendanceID`),
-  ADD KEY `StudentID` (`StudentID`),
-  ADD KEY `LessonID` (`LessonID`);
+  ADD PRIMARY KEY (`attendance_id`),
+  ADD KEY `StudentID` (`student_id`),
+  ADD KEY `LessonID` (`lesson_id`);
 
 --
 -- Индексы таблицы `groups`
 --
 ALTER TABLE `groups`
-  ADD PRIMARY KEY (`GroupID`);
+  ADD PRIMARY KEY (`group_id`);
 
 --
 -- Индексы таблицы `lessons`
 --
 ALTER TABLE `lessons`
-  ADD PRIMARY KEY (`LessonID`);
+  ADD PRIMARY KEY (`lesson_id`);
 
 --
 -- Индексы таблицы `marks`
 --
 ALTER TABLE `marks`
-  ADD PRIMARY KEY (`MarkID`),
-  ADD KEY `StudentID` (`StudentID`),
-  ADD KEY `LessonID` (`LessonID`);
+  ADD PRIMARY KEY (`mark_id`),
+  ADD KEY `StudentID` (`student_id`),
+  ADD KEY `LessonID` (`lesson_id`);
+
+--
+-- Индексы таблицы `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`role_id`);
 
 --
 -- Индексы таблицы `schedule`
 --
 ALTER TABLE `schedule`
-  ADD PRIMARY KEY (`ScheduleID`),
-  ADD KEY `LessonID` (`LessonID`),
-  ADD KEY `TeacherID` (`TeacherID`);
+  ADD PRIMARY KEY (`schedule_id`),
+  ADD KEY `LessonID` (`lesson_id`),
+  ADD KEY `TeacherID` (`teacher_id`);
 
 --
 -- Индексы таблицы `students`
 --
 ALTER TABLE `students`
-  ADD PRIMARY KEY (`StudentID`),
-  ADD KEY `GroupID` (`GroupID`);
+  ADD PRIMARY KEY (`student_id`),
+  ADD KEY `GroupID` (`group_id`);
 
 --
 -- Индексы таблицы `teachers`
 --
 ALTER TABLE `teachers`
-  ADD PRIMARY KEY (`TeacherID`);
+  ADD PRIMARY KEY (`teacher_id`);
 
 --
 -- Индексы таблицы `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`UserID`),
-  ADD KEY `TeacherID` (`TeacherID`);
+  ADD PRIMARY KEY (`user_id`),
+  ADD KEY `TeacherID` (`teacher_id`);
+
+--
+-- Индексы таблицы `user_roles`
+--
+ALTER TABLE `user_roles`
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `role_id` (`role_id`);
 
 --
 -- AUTO_INCREMENT для сохранённых таблиц
@@ -431,49 +490,55 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `AttendanceID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `attendance_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `groups`
 --
 ALTER TABLE `groups`
-  MODIFY `GroupID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `group_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT для таблицы `lessons`
 --
 ALTER TABLE `lessons`
-  MODIFY `LessonID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `lesson_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT для таблицы `marks`
 --
 ALTER TABLE `marks`
-  MODIFY `MarkID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `mark_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `ScheduleID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `students`
 --
 ALTER TABLE `students`
-  MODIFY `StudentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=302;
+  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=302;
 
 --
 -- AUTO_INCREMENT для таблицы `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `TeacherID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `teacher_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
@@ -483,34 +548,41 @@ ALTER TABLE `users`
 -- Ограничения внешнего ключа таблицы `attendance`
 --
 ALTER TABLE `attendance`
-  ADD CONSTRAINT `attendance_ibfk_1` FOREIGN KEY (`StudentID`) REFERENCES `students` (`StudentID`),
-  ADD CONSTRAINT `attendance_ibfk_2` FOREIGN KEY (`LessonID`) REFERENCES `lessons` (`LessonID`);
+  ADD CONSTRAINT `attendance_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `students` (`student_id`),
+  ADD CONSTRAINT `attendance_ibfk_2` FOREIGN KEY (`lesson_id`) REFERENCES `lessons` (`lesson_id`);
 
 --
 -- Ограничения внешнего ключа таблицы `marks`
 --
 ALTER TABLE `marks`
-  ADD CONSTRAINT `marks_ibfk_1` FOREIGN KEY (`StudentID`) REFERENCES `students` (`StudentID`),
-  ADD CONSTRAINT `marks_ibfk_2` FOREIGN KEY (`LessonID`) REFERENCES `lessons` (`LessonID`);
+  ADD CONSTRAINT `marks_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `students` (`student_id`),
+  ADD CONSTRAINT `marks_ibfk_2` FOREIGN KEY (`lesson_id`) REFERENCES `lessons` (`lesson_id`);
 
 --
 -- Ограничения внешнего ключа таблицы `schedule`
 --
 ALTER TABLE `schedule`
-  ADD CONSTRAINT `schedule_ibfk_1` FOREIGN KEY (`LessonID`) REFERENCES `lessons` (`LessonID`),
-  ADD CONSTRAINT `schedule_ibfk_2` FOREIGN KEY (`TeacherID`) REFERENCES `teachers` (`TeacherID`);
+  ADD CONSTRAINT `schedule_ibfk_1` FOREIGN KEY (`lesson_id`) REFERENCES `lessons` (`lesson_id`),
+  ADD CONSTRAINT `schedule_ibfk_2` FOREIGN KEY (`teacher_id`) REFERENCES `teachers` (`teacher_id`);
 
 --
 -- Ограничения внешнего ключа таблицы `students`
 --
 ALTER TABLE `students`
-  ADD CONSTRAINT `students_ibfk_1` FOREIGN KEY (`GroupID`) REFERENCES `groups` (`GroupID`);
+  ADD CONSTRAINT `students_ibfk_1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`group_id`);
 
 --
 -- Ограничения внешнего ключа таблицы `users`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`TeacherID`) REFERENCES `teachers` (`TeacherID`);
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`teacher_id`) REFERENCES `teachers` (`teacher_id`);
+
+--
+-- Ограничения внешнего ключа таблицы `user_roles`
+--
+ALTER TABLE `user_roles`
+  ADD CONSTRAINT `user_roles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
+  ADD CONSTRAINT `user_roles_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `roles` (`role_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
