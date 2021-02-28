@@ -1,0 +1,74 @@
+/* правая часть - навигация */
+#divRight {
+    background-color: black;
+    color: rgb(120, 128, 128);
+    height: 100%;
+    width: 16%;
+    left: 0%;
+    top: 0%;
+    position: absolute;
+    text-align: center;
+}
+.divRight {
+    padding-top: 10px;
+    background-color: rgb(31, 28, 28);
+    height: 100%;
+}
+#divRight p {
+    text-decoration: none;
+    font-size: 25px;
+    display: block;
+    transition: 0.3s;
+}
+.divRight p {
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+.divRight p:hover {
+    color: #f1f1f1;
+}
+/* --------------------------------------------- */
+
+/* левая часть - отобрадение навигационных окон */
+#divLeft {
+    background-color: rgb(52, 52, 53);
+    position: fixed;
+    height: 100%;
+    width: 84%;
+    right: 0%;
+    top: 0%;
+    /* text-align: center; */
+    /* margin: auto; */
+    /* width: fit-content; */
+}
+.divLeft {
+    background-color: rgb(66, 65, 65);
+    /* padding: 2%; */
+    /* border-radius: 15px; */
+    margin: 2% auto;
+    width: fit-content;
+    
+}
+#divMain {
+}
+#divMySchedule {
+    width: 20%;
+}
+#divMySubjects {
+    width: 20%;
+}
+#divMyGroups {
+    width: 20%;
+}
+#divMySubject {
+    width: 20%;
+}
+.displayShow {
+    display: none;
+}
+/* ------------------------------------------------------------ */
+table {
+}
