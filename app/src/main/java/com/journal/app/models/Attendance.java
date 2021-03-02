@@ -2,6 +2,7 @@ package com.journal.app.models;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Collection;
 
 @Entity
 @Table(name = "attendance")
@@ -12,14 +13,15 @@ public class Attendance {
     @Column(name = "attendance_id")
     private Long attendanceId;
 
-    @Column(name = "student_id")
-    private Long studentId;
+    @OneToMany(fetch = FetchType.EAGER)
+    private Collection<Student> studentId;
 
     @Column(name = "date")
     private Date date;
 
-    @Column(name = "lesson_id")
-    private Long lessonId;
+    @OneToOne
+    @JoinColumn(name = "lesson_id")
+    private Lesson lessonId;
 
     @Column(name = "presence")
     private boolean presence;
@@ -32,11 +34,11 @@ public class Attendance {
         this.attendanceId = attendanceId;
     }
 
-    public Long getStudentId() {
+    public Collection<Student> getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(Long studentId) {
+    public void setStudentId(Collection<Student> studentId) {
         this.studentId = studentId;
     }
 
@@ -48,11 +50,11 @@ public class Attendance {
         this.date = date;
     }
 
-    public Long getLessonId() {
+    public Lesson getLessonId() {
         return lessonId;
     }
 
-    public void setLessonId(Long lessonId) {
+    public void setLessonId(Lesson lessonId) {
         this.lessonId = lessonId;
     }
 

@@ -1,10 +1,11 @@
 package com.journal.app.models;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Table(name = "groups")
-public class Groups {
+public class Group {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -13,6 +14,17 @@ public class Groups {
 
     @Column(name = "name")
     private String name;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    private Collection<Student> students;
+
+    public Collection<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(Collection<Student> students) {
+        this.students = students;
+    }
 
     public Long getGroupId() {
         return groupId;

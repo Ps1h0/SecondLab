@@ -5,15 +5,16 @@ import java.util.Date;
 
 @Entity
 @Table(name = "marks")
-public class Marks {
+public class Mark {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "mark_id")
     private Long markId;
 
-    @Column(name = "student_id")
-    private Long studentId;
+    @OneToOne
+    @JoinColumn(name = "student_id")
+    private Student studentId;
 
     @Column(name = "mark")
     private Integer mark;
@@ -21,8 +22,9 @@ public class Marks {
     @Column(name = "date")
     private Date date;
 
-    @Column(name = "lesson_id")
-    private Long lessonId;
+    @OneToOne
+    @JoinColumn(name = "lesson_id")
+    private Lesson lessonId;
 
     public Long getMarkId() {
         return markId;
@@ -32,11 +34,11 @@ public class Marks {
         this.markId = markId;
     }
 
-    public Long getStudentId() {
+    public Student getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(Long studentId) {
+    public void setStudentId(Student studentId) {
         this.studentId = studentId;
     }
 
@@ -56,11 +58,11 @@ public class Marks {
         this.date = date;
     }
 
-    public Long getLessonId() {
+    public Lesson getLessonId() {
         return lessonId;
     }
 
-    public void setLessonId(Long lessonId) {
+    public void setLessonId(Lesson lessonId) {
         this.lessonId = lessonId;
     }
 }

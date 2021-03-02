@@ -3,13 +3,13 @@ package com.journal.app.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "students")
-public class Students {
+@Table(name = "teachers")
+public class Teacher {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "student_id")
-    private Long studentId;
+    @Column(name = "teacher_id")
+    private Long teacherId;
 
     @Column(name = "second_name")
     private String secondName;
@@ -20,15 +20,12 @@ public class Students {
     @Column(name = "patronymic")
     private String patronymic;
 
-    @Column(name = "group_id")
-    private Long groupId;
-
-    public Long getStudentId() {
-        return studentId;
+    public Long getTeacherId() {
+        return teacherId;
     }
 
-    public void setStudentId(Long studentId) {
-        this.studentId = studentId;
+    public void setTeacherId(Long teacherId) {
+        this.teacherId = teacherId;
     }
 
     public String getSecondName() {
@@ -53,13 +50,5 @@ public class Students {
 
     public void setPatronymic(String patronymic) {
         this.patronymic = patronymic;
-    }
-
-    public Long getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(Long groupId) {
-        this.groupId = groupId;
     }
 }

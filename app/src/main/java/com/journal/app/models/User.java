@@ -25,13 +25,13 @@ public class User {
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Collection<Roles> roles;
+    private Collection<Role> roles;
 
-    public Collection<Roles> getRoles() {
+    public Collection<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(Collection<Roles> roles) {
+    public void setRoles(Collection<Role> roles) {
         this.roles = roles;
     }
 

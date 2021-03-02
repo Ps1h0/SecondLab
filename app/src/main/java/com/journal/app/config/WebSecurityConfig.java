@@ -48,17 +48,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return authenticationProvider;
     }
 
-//    @Override
-//    public void configure(AuthenticationManagerBuilder auth) throws Exception{
-//        auth
-//                .jdbcAuthentication()
-//                    .dataSource(dataSource)
-//                    .usersByUsernameQuery(
-//                            "SELECT login, password, 'true' FROM users WHERE login=?"
-//                    )
-//                    .authoritiesByUsernameQuery("SELECT users.login, roles.name FROM users, roles WHERE role_id = " +
-//                                                "(SELECT role_id FROM user_roles WHERE user_id = " +
-//                                                "(SELECT user_id FROM users WHERE login=?))");
-//
-//    }
+
 }

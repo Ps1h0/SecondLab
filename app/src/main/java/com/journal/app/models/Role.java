@@ -1,10 +1,11 @@
 package com.journal.app.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "roles")
-public class Roles {
+public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -13,6 +14,20 @@ public class Roles {
 
     @Column(name = "name")
     private String name;
+
+    @ManyToMany
+    @JoinTable(name = "user_roles",
+    joinColumns = @JoinColumn(name = "role_id"),
+    inverseJoinColumns = @JoinColumn(name = "user_id"))
+    private List<User> users;
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
 
     public Long getRoleId() {
         return roleId;
