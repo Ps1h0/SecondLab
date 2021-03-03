@@ -12,8 +12,6 @@
     <div class="head">
         <a href="/">На главную</a>
     </div>
-    <div th:if="${param.logout}" class="alert alert-info" role="alert">Выход</div>
-    <div th:if="${param.error}" class="alert alert-danger" role="alert">Неверный логин/пароль</div>
     <div class="form">
         <form th:action="@{/signin}" method="post">
             <span>Логин</span><br>
@@ -21,6 +19,8 @@
             <span>Пароль</span><br>
             <input type="password" name="password" id="password" placeholder="password" required><br>
             <button type="submit" id="btnSignIn">Войти</button><br>
+            <p th:if="${param.logout}" class="alert alert-info" role="alert">Выход</p>
+            <p th:if="${param.error}" class="alert alert-danger" role="alert">Неверный логин/пароль</p>
         </form>
     </div>
 </body>

@@ -12,9 +12,7 @@
     <div>
         <div id="divRight">
             <div>
-                <p>
-                    <div th:text="${}"></div>
-                </p>
+                <p th:text="${teacher.getSecondName()}+' '+${teacher.getName()}+' '+${teacher.getPatronymic()}"></p>
             </div>
             <div class="divRight">
                 <p id="myMain">Занятия сегодня</p>
@@ -25,7 +23,7 @@
         </div>
         <div id="divLeft">
             <div class="divLeft displayShow" id="divMain">
-                <p>Сегоднешние занятия</p>
+                <p>Сегодняшние занятия</p>
                 <table>
                     <tr>
                         <td>1.</td>
