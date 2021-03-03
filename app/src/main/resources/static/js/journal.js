@@ -5,12 +5,14 @@
     $('.divRight p').click(function (event) {
 
         $('#divMySubject').addClass('displayShow');
+
         $('#divMain').addClass('displayShow');
         $('#divMySchedule').addClass('displayShow');
         $('#divMySubjects').addClass('displayShow');
         $('#divMyGroups').addClass('displayShow');
 
           let target = $( event.target );
+
           if ( target.is( "#myMain" ) ) {
             $('#divMain').toggleClass('displayShow');
           }
@@ -32,5 +34,6 @@
       $('#divMySubject').toggleClass('displayShow');
       $('#nameSubject').text(target.text());
     })
+
         
 // });
