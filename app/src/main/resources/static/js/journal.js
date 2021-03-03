@@ -9,7 +9,7 @@
         $('#divMySubjects').addClass('displayShow');
         $('#divMyGroups').addClass('displayShow');
 
-          var target = $( event.target );
+          let target = $( event.target );
           if ( target.is( "#myMain" ) ) {
             $('#divMain').toggleClass('displayShow');
           }
@@ -22,6 +22,11 @@
           if ( target.is( "#myGroups" ) ) {
             $('#divMyGroups').toggleClass('displayShow');
           }
+    })
+
+    $('#divMySubjects p').click((event) => {
+      let target = $( event.target );
+      alert('переход на таблицу предмета')
     })
         
 // });
