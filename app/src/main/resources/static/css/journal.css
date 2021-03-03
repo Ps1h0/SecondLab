@@ -25,6 +25,7 @@
     text-decoration: none;
     font-size: 20px;
     color: #84889b;
+
     display: block;
     transition: 0.3s;
 }
@@ -47,6 +48,7 @@
 }
 .divLeft {
     /* background-color: rgb(66, 65, 65); */
+
     /* padding: 2%; */
     /* border-radius: 15px; */
     margin: 2% auto;
@@ -124,6 +126,15 @@
 	padding: 5px 10px;
 	border: 1px solid #eee;
 	text-align: center;
+=======
+    width: 20%;
+}
+#divMyGroups {
+    width: 20%;
+}
+#divMySubject {
+    width: 20%;
+
 }
 .displayShow {
     display: none;

@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Журнал</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='../static/css/journal.css'>
+
+    <link rel='stylesheet' type='text/css' media='screen' href='/css/journal.css'>
     <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 </head>
 <body>
     <div>
         <div id="divRight">
             <div>
-                <p>FIO</p>
+                <p th:text="${teacher.getSecondName()}+' '+${teacher.getName()}+' '+${teacher.getPatronymic()}"></p>
             </div>
             <div class="divRight">
                 <p id="myMain">Занятия сегодня</p>
@@ -24,7 +26,7 @@
         </div>
         <div id="divLeft">
             <div class="divLeft displayShow" id="divMain">
-                <p>Сегоднешние занятия:</p>
+                <p>Сегодняшние занятия</p>
                 <table>
                     <tr>
                         <td>1.</td>
@@ -42,6 +44,7 @@
                             <p>IT 002</p>
                             <p>IT 003</p>
                         </td>
+
                     </tr>
                 </table>
             </div>
@@ -101,5 +104,5 @@
         </div>
     </div>
 </body>
-<script src='../static/js/journal.js'></script>
+<script src='/js/journal.js'></script>
 </html>
