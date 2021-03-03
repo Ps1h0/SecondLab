@@ -1,0 +1,138 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h3>Мои предметы:</h3>-->
+<!--<table>-->
+<!--    <thead>-->
+<!--    <th>-->
+<!--        Название предмета-->
+<!--    </th>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr th:each="lesson:${lessons}">-->
+<!--        <td th:text="${lesson.getName()}"></td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Журнал</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <link rel='stylesheet' type='text/css' media='screen' href='/css/journal.css'>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+</head>
+<body>
+<div>
+    <div id="divRight">
+        <div>
+            <p th:text="${teacher.getSecondName()}+' '+${teacher.getName()}+' '+${teacher.getPatronymic()}"></p>
+        </div>
+        <div class="divRight">
+            <p id="myMain">Занятия сегодня</p>
+            <p id="mySchedule">Мое расписание</p>
+            <p id="myGroups">Мои группы</p>
+            <p id="mySubject">Мои предметы</p>
+
+            <form th:action="@{/journal/subjects}" method="post"><input type="submit" value="Мои предметы"></form>
+
+            <form th:action="@{/logout}" method="post"><input type="submit" value="выйти" id="myExit"></form>
+
+        </div>
+    </div>
+    <div id="divLeft">
+        <div class="divLeft displayShow" id="divMain">
+            <p>Вывести дату</p>
+            <table>
+                <tr>
+                    <td>1.</td>
+                    <td>lesson</td>
+                </tr>
+            </table>
+        </div>
+        <div class="divLeft displayShow" id="divMySchedule"></div>
+        <div class="divLeft displayShow" id="divMyGroups">
+            <h3>Мои группы:</h3>
+            <table>
+                <tr>
+                    <td>
+                        <p>IT 001</p>
+                        <p>IT 002</p>
+                        <p>IT 003</p>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+        <div class="divLeft displayShow" id="divMySubjects">
+            <h3>Мои предметы:</h3>
+            <table>
+                <thead>
+                <th>
+                    Название предмета
+                </th>
+                </thead>
+                <tbody>
+                <tr th:each="lesson:${lessons}">
+                    <td th:text="${lesson.getName()}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="divLeft displayShow" id="divMySubject">
+            <span>Предмет:</span><p id="nameSubject">Название предмета</p>
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>дата</td>
+                    <td>дата</td>
+                    <td>дата</td>
+                    <td>дата</td>
+                    <td>дата</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Student</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Student</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Student</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>5</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+<script src='/js/journal.js'></script>
+</html>

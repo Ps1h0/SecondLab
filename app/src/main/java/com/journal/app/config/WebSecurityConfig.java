@@ -1,5 +1,6 @@
 package com.journal.app.config;
 
+
 import com.journal.app.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
