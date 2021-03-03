@@ -32,6 +32,18 @@
 .divRight p:hover {
     color: #f1f1f1;
 }
+input[type=submit] {
+    width:150px;
+    height:40px;
+    border-radius:20px;
+    background-color: rgb(31, 28, 28);
+    /* color:#fff; */
+    font-size:18px;
+    cursor:pointer;
+}
+input[type=submit][type=submit]:hover {
+    color: #f1f1f1;
+}
 /* --------------------------------------------- */
 
 /* левая часть - отображение навигационных окон */
