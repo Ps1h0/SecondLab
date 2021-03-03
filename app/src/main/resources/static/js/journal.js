@@ -2,8 +2,9 @@
 
     $("#divMySchedule").load("schedule.html");
 
-    $('.divRight').click(function (event) {
+    $('.divRight p').click(function (event) {
 
+        $('#divMySubject').addClass('displayShow');
         $('#divMain').addClass('displayShow');
         $('#divMySchedule').addClass('displayShow');
         $('#divMySubjects').addClass('displayShow');
@@ -26,7 +27,10 @@
 
     $('#divMySubjects p').click((event) => {
       let target = $( event.target );
-      alert('переход на таблицу предмета')
+      console.log(target.text());
+      $('#divMySubjects').toggleClass('displayShow');
+      $('#divMySubject').toggleClass('displayShow');
+      $('#nameSubject').text(target.text());
     })
         
 // });

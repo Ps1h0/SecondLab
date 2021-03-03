@@ -19,6 +19,7 @@
     font-size: 25px;
     display: block;
     transition: 0.3s;
+    cursor: default;
 }
 .divRight p {
     text-decoration: none;
