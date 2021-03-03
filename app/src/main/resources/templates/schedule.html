@@ -5,22 +5,22 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Расписание</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='../css/schedule.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../static/css/schedule.css'>
     
 </head>
 <body>
-    <table border="1">
+    <table class="table">
         <thead></thead>
         <tbody>
-            <tr>
-                <td></td>
+            <tr class="trHead">
+                <td class="tdHead"></td>
                 <td>Понедельник</td>
                 <td>Вторник</td>
                 <td>Среда</td>
             </tr>
             <tr>
                 <td>
-                    <table>
+                    <table class="tableNamber">
                         <tr><td>1</td></tr>
                         <tr><td>2</td></tr>
                         <tr><td>3</td></tr>
@@ -30,16 +30,34 @@
                     </table>
                 </td>
                 <td>
-                    <table id="monday"></table>
+                    <table id="monday">
+                        <tr>
+                            <td>
+                                <!-- вывод данных -->
+                            </td>
+                        </tr>
+                    </table>
                 </td>
                 <td>
-                    <table id="tuesday"></table>
+                    <table id="tuesday">
+                        <tr>
+                            <td>
+                                <!-- вывод данных -->
+                            </td>
+                        </tr>
+                    </table>
                 </td>
                 <td>
-                    <table id="wednesday"></table>
+                    <table id="wednesday">
+                        <tr>
+                            <td>
+                                <!-- вывод данных -->
+                            </td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
-            <tr>
+            <tr class="trHead">
                 <td></td>
                 <td>Четверг</td>
                 <td>Пятница</td>
@@ -47,7 +65,7 @@
             </tr>
             <tr>
                 <td>
-                    <table>
+                    <table class="tableNamber">
                         <tr><td>1</td></tr>
                         <tr><td>2</td></tr>
                         <tr><td>3</td></tr>
@@ -57,17 +75,35 @@
                     </table>
                 </td>
                 <td>
-                    <table id="thursday"></table>
+                    <table id="thursday">
+                        <tr>
+                            <td>
+                                <!-- вывод данных -->
+                            </td>
+                        </tr>
+                    </table>
                 </td>
                 <td>
-                    <table id="friday"></table>
+                    <table id="friday">
+                        <tr>
+                            <td>
+                                <!-- вывод данных -->
+                            </td>
+                        </tr>
+                    </table>
                 </td>
                 <td>
-                    <table id="saturday"></table>
+                    <table id="saturday">
+                        <tr>
+                            <td>
+                                <!-- вывод данных -->
+                            </td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
         </tbody>
     </table>
 </body>
-<script src='../js/schedule.js'></script>
+<script src='../static/js/schedule.js'></script>
 </html>

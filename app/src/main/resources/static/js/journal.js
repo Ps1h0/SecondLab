@@ -1,6 +1,6 @@
 // $(function(){
 
-    $("#divMySchedule").load("../html/schedule.html");
+    $("#divMySchedule").load("schedule.html");
 
     $('.divRight').click(function (event) {
 
