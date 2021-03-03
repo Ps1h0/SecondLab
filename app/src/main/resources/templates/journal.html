@@ -22,6 +22,8 @@
                 <p id="myGroups">Мои группы</p>
                 <p id="mySubject">Мои предметы</p>
 
+                <form th:action="@{/journal/subjects}" method="post"><input type="submit" value="Мои предметы"></form>
+
                 <form th:action="@{/logout}" method="post"><input type="submit" value="выйти" id="myExit"></form>
 
             </div>
@@ -53,13 +55,16 @@
             <div class="divLeft displayShow" id="divMySubjects">
                 <h3>Мои предметы:</h3>
                 <table>
-                    <tr>
-                        <td>
-                            <p>математика</p>
-                            <p>руссикй</p>
-                            <p>история</p>
-                        </td>
-                    </tr>
+                    <thead>
+                        <th>
+                            Название предмета
+                        </th>
+                    </thead>
+                    <tbody>
+                        <tr th:each="lesson:${lessons}">
+                            <td th:text="${lesson.getName()}"></td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
             <div class="divLeft displayShow" id="divMySubject">
