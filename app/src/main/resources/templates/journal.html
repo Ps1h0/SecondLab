@@ -21,12 +21,14 @@
                 <p id="mySchedule">Мое расписание</p>
                 <p id="myGroups">Мои группы</p>
                 <p id="mySubject">Мои предметы</p>
-                <form action="/logout"><input type="submit" value="Выйти" id="myExit" onclick="confirm('Действительно хотите выйти?')"></form>
+
+                <form th:action="@{/logout}" method="post"><input type="submit" value="выйти" id="myExit"></form>
+
             </div>
         </div>
         <div id="divLeft">
             <div class="divLeft displayShow" id="divMain">
-                <p>Сегодняшние занятия</p>
+                <p>Вывести дату</p>
                 <table>
                     <tr>
                         <td>1.</td>

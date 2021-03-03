@@ -32,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin().loginPage("/signin").permitAll().successForwardUrl("/journal")
                 .and()
-                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll();
+                .logout().logoutSuccessUrl("/index").permitAll();
     }
 
     @Bean
