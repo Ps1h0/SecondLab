@@ -19,11 +19,13 @@
     font-size: 25px;
     display: block;
     transition: 0.3s;
+    cursor: default;
 }
 .divRight p {
     text-decoration: none;
     font-size: 20px;
-    color: #818181;
+    color: #84889b;
+
     display: block;
     transition: 0.3s;
 }
@@ -34,7 +36,7 @@
 
 /* левая часть - отобрадение навигационных окон */
 #divLeft {
-    background-color: rgb(52, 52, 53);
+    background-color: rgb(145, 136, 136);
     position: fixed;
     height: 100%;
     width: 84%;
@@ -45,7 +47,8 @@
     /* width: fit-content; */
 }
 .divLeft {
-    background-color: rgb(66, 65, 65);
+    /* background-color: rgb(66, 65, 65); */
+
     /* padding: 2%; */
     /* border-radius: 15px; */
     margin: 2% auto;
@@ -53,11 +56,77 @@
     
 }
 #divMain {
+    width: 220px;
+    background-color: #ccced8;
+    padding: 20px;
+    border-radius: 40px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 #divMySchedule {
     width: 20%;
 }
 #divMySubjects {
+    width: 220px;
+    background-color: #ccced8;
+    padding: 20px;
+    border-radius: 40px;
+}
+#divMySubjects p {
+    background-color: aliceblue;
+    border-radius: 8px;
+    padding: 4px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: default;
+}
+#divMySubjects p:hover {
+    background-color: aqua;
+    position: relative;
+    opacity: 1;
+    transform: scale(1.1);
+}
+#divMyGroups {
+    width: 220px;
+    background-color: #ccced8;
+    padding: 20px;
+    border-radius: 40px;
+}
+#divMyGroups p {
+    background-color: aliceblue;
+    border-radius: 8px;
+    padding: 4px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: default;
+}
+#divMyGroups p:hover {
+    background-color: aqua;
+    position: relative;
+    opacity: 1;
+    transform: scale(1.1);
+}
+#divMySubject {
+    background-color: #ccced8;
+    padding: 20px;
+    border-radius: 10px;
+}
+#divMySubject table{
+	border: 1px solid #eee;
+	table-layout: fixed;
+	width: 100%;
+	margin-bottom: 20px;
+}
+#divMySubject table th {
+	font-weight: bold;
+	padding: 5px;
+	background: #efefef;
+	border: 1px solid #dddddd;
+}
+#divMySubject table td{
+	padding: 5px 10px;
+	border: 1px solid #eee;
+	text-align: center;
+=======
     width: 20%;
 }
 #divMyGroups {
@@ -65,10 +134,9 @@
 }
 #divMySubject {
     width: 20%;
+
 }
 .displayShow {
     display: none;
 }
 /* ------------------------------------------------------------ */
-table {
-}
