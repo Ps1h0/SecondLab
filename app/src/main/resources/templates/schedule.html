@@ -5,104 +5,128 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Расписание</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='/css/schedule.css'>    
+    <link rel='stylesheet' type='text/css' media='screen' href='../static/css/journal.css'>    
 </head>
 <body>
-    <table class="table">
-        <thead></thead>
-        <tbody>
-            <tr class="trHead">
-                <td class="tdHead"></td>
-                <td>Понедельник</td>
-                <td>Вторник</td>
-                <td>Среда</td>
-            </tr>
-            <tr>
-                <td>
-                    <table class="tableNamber">
-                        <tr><td>1</td></tr>
-                        <tr><td>2</td></tr>
-                        <tr><td>3</td></tr>
-                        <tr><td>4</td></tr>
-                        <tr><td>5</td></tr>
-                        <tr><td>6</td></tr>
-                    </table>
-                </td>
-                <td>
-                    <table id="monday">
-                        <tr>
-                            <td>
-                                <!-- вывод данных -->
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                <td>
-                    <table id="tuesday">
-                        <tr>
-                            <td>
-                                <!-- вывод данных -->
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                <td>
-                    <table id="wednesday">
-                        <tr>
-                            <td>
-                                <!-- вывод данных -->
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr class="trHead">
-                <td></td>
-                <td>Четверг</td>
-                <td>Пятница</td>
-                <td>Суббота</td>
-            </tr>
-            <tr>
-                <td>
-                    <table class="tableNamber">
-                        <tr><td>1</td></tr>
-                        <tr><td>2</td></tr>
-                        <tr><td>3</td></tr>
-                        <tr><td>4</td></tr>
-                        <tr><td>5</td></tr>
-                        <tr><td>6</td></tr>
-                    </table>
-                </td>
-                <td>
-                    <table id="thursday">
-                        <tr>
-                            <td>
-                                <!-- вывод данных -->
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                <td>
-                    <table id="friday">
-                        <tr>
-                            <td>
-                                <!-- вывод данных -->
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                <td>
-                    <table id="saturday">
-                        <tr>
-                            <td>
-                                <!-- вывод данных -->
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div>
+        <div id="divLeft">
+            <div>
+                <p th:text="${teacher.getSecondName()}+' '+${teacher.getName()}+' '+${teacher.getPatronymic()}"></p>
+            </div>
+            <div class="divLeft">
+                <form th:action="@{}" method="post">
+                    <input type="submit" value="Занятия сегодня" id="myMain">
+                </form>
+                <form th:action="@{}" method="post">
+                    <input type="submit" value="Мое расписание" id="mySchedule">
+                </form>
+                <form th:action="@{}" method="post">
+                    <input type="submit" value="Мои группы" id="myGroups">
+                </form>
+                <form th:action="@{}" method="post">
+                    <input type="submit" value="Мои предметы" id="mySubjects">
+                </form>
+                <form action="/logout">
+                    <input type="submit" value="Выйти" id="myExit">
+                </form>
+            </div>
+        </div>
+        <div id="divRight">
+            <table class="table">
+                <thead></thead>
+                <tbody>
+                    <tr class="trHead">
+                        <td class="tdHead"></td>
+                        <td>Понедельник</td>
+                        <td>Вторник</td>
+                        <td>Среда</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table class="tableNamber">
+                                <tr>
+                                    <td>
+                                        <!-- ввод порядка предмета -->
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table id="monday">
+                                <tr>
+                                    <td>
+                                        <!-- вывод данных -->
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table id="tuesday">
+                                <tr>
+                                    <td>
+                                        <!-- вывод данных -->
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table id="wednesday">
+                                <tr>
+                                    <td>
+                                        <!-- вывод данных -->
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr class="trHead">
+                        <td></td>
+                        <td>Четверг</td>
+                        <td>Пятница</td>
+                        <td>Суббота</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table class="tableNamber">
+                                <tr>
+                                    <td>
+                                        <!-- ввод порядка предмета -->
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table id="thursday">
+                                <tr>
+                                    <td>
+                                        <!-- вывод данных -->
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table id="friday">
+                                <tr>
+                                    <td>
+                                        <!-- вывод данных -->
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table id="saturday">
+                                <tr>
+                                    <td>
+                                        <!-- вывод данных -->
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 <script src='/js/schedule.js'></script>
 </html>
