@@ -7,104 +7,41 @@
     <title>Журнал</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-    <link rel='stylesheet' type='text/css' media='screen' href='/css/journal.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../static/css/journal.css'>
     <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 </head>
 <body>
     <div>
-        <div id="divRight">
+        <div id="divLeft">
             <div>
                 <p th:text="${teacher.getSecondName()}+' '+${teacher.getName()}+' '+${teacher.getPatronymic()}"></p>
             </div>
-            <div class="divRight">
-                <p id="myMain">Занятия сегодня</p>
-                <p id="mySchedule">Мое расписание</p>
-                <p id="myGroups">Мои группы</p>
-                <p id="mySubject">Мои предметы</p>
-
-                <form th:action="@{/journal/subjects}" method="post"><input type="submit" value="Мои предметы"></form>
-
-                <form th:action="@{/logout}" method="post"><input type="submit" value="выйти" id="myExit"></form>
-
+            <div class="divLeft">
+                <form th:action="@{}" method="post">
+                    <input type="submit" value="Занятия сегодня" id="myMain">
+                </form>
+                <form th:action="@{}" method="post">
+                    <input type="submit" value="Мое расписание" id="mySchedule">
+                </form>
+                <form th:action="@{}" method="post">
+                    <input type="submit" value="Мои группы" id="myGroups">
+                </form>
+                <form th:action="@{}" method="post">
+                    <input type="submit" value="Мои предметы" id="mySubjects">
+                </form>
+                <form action="/logout">
+                    <input type="submit" value="Выйти" id="myExit">
+                </form>
             </div>
         </div>
-        <div id="divLeft">
-            <div class="divLeft displayShow" id="divMain">
-                <p>Вывести дату</p>
+        <div id="divRight">
+            <div class="divRight" id="divMain">
+                <p>Сегодняшние занятия</p>
+
                 <table>
                     <tr>
                         <td>1.</td>
                         <td>lesson</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="divLeft displayShow" id="divMySchedule"></div>
-            <div class="divLeft displayShow" id="divMyGroups">
-                <h3>Мои группы:</h3>
-                <table>
-                    <tr>
-                        <td>
-                            <p>IT 001</p>
-                            <p>IT 002</p>
-                            <p>IT 003</p>
-                        </td>
-
-                    </tr>
-                </table>
-            </div>
-            <div class="divLeft displayShow" id="divMySubjects">
-                <h3>Мои предметы:</h3>
-                <table>
-                    <thead>
-                        <th>
-                            Название предмета
-                        </th>
-                    </thead>
-                    <tbody>
-                        <tr th:each="lesson:${lessons}">
-                            <td th:text="${lesson.getName()}"></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="divLeft displayShow" id="divMySubject">
-               <span>Предмет:</span><p id="nameSubject">Название предмета</p>
-                <table>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td>дата</td>
-                        <td>дата</td>
-                        <td>дата</td>
-                        <td>дата</td>
-                        <td>дата</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Student</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>5</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Student</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>5</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Student</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>5</td>
                     </tr>
                 </table>
             </div>

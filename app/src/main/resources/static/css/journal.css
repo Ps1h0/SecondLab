@@ -1,5 +1,5 @@
-/* правая часть - навигация */
-#divRight {
+/* левая часть - навигация -------------- */
+#divLeft {
     background-color: black;
     color: rgb(120, 128, 128);
     height: 100%;
@@ -9,19 +9,19 @@
     position: absolute;
     text-align: center;
 }
-.divRight {
+.divLeft  {
     padding-top: 10px;
     background-color: rgb(31, 28, 28);
     height: 100%;
 }
-#divRight p {
+/* #divLeft  p {
     text-decoration: none;
     font-size: 25px;
     display: block;
     transition: 0.3s;
     cursor: default;
 }
-.divRight p {
+.divLeft  p {
     text-decoration: none;
     font-size: 20px;
     color: #84889b;
@@ -29,26 +29,32 @@
     display: block;
     transition: 0.3s;
 }
-.divRight p:hover {
+.divLeft  p:hover {
     color: #f1f1f1;
-}
+} */
 input[type=submit] {
-    width:150px;
+    width:155px;
     height:40px;
     border-radius:20px;
     background-color: rgb(31, 28, 28);
-    /* color:#fff; */
+    color:rgb(129, 126, 126);
     font-size:18px;
     cursor:pointer;
+    margin-top: 10px;
 }
-input[type=submit][type=submit]:hover {
+input[type=submit]:hover {
     color: #f1f1f1;
 }
-/* --------------------------------------------- */
+/* ----------------------------- левая часть - навигация */
 
+<<<<<<< HEAD
+/* правая часть - отобрадение навигационных окон ---------*/
+#divRight {
+=======
 /* левая часть - отображение навигационных окон */
 
 #divLeft {
+>>>>>>> 77ca62805d89118358f7d9797eb56e7714305f25
     background-color: rgb(145, 136, 136);
     position: fixed;
     height: 100%;
@@ -59,7 +65,7 @@ input[type=submit][type=submit]:hover {
     /* margin: auto; */
     /* width: fit-content; */
 }
-.divLeft {
+.divRight {
     /* background-color: rgb(66, 65, 65); */
 
     /* padding: 2%; */
@@ -90,7 +96,7 @@ input[type=submit][type=submit]:hover {
     padding: 4px;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    cursor: default;
+    cursor: pointer;
 }
 #divMySubjects p:hover {
     background-color: aqua;
@@ -110,7 +116,7 @@ input[type=submit][type=submit]:hover {
     padding: 4px;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    cursor: default;
+    cursor: pointer;
 }
 #divMyGroups p:hover {
     background-color: aqua;
@@ -139,17 +145,49 @@ input[type=submit][type=submit]:hover {
 	padding: 5px 10px;
 	border: 1px solid #eee;
 	text-align: center;
-=======
-    width: 20%;
+
+    /* width: 20%; */
 }
 #divMyGroups {
     width: 20%;
 }
 #divMySubject {
-    width: 20%;
+    width: 95%;
 
 }
-.displayShow {
-    display: none;
+/* таблица расписание ------------------------- */
+.table{
+	border: 1px solid #eee;
+	table-layout: fixed;
+	width: 100%;
+	margin-bottom: 20px;
 }
-/* ------------------------------------------------------------ */
+.table th {
+	font-weight: bold;
+	padding: 5px;
+	background: #efefef;
+	border: 1px solid #dddddd;
+}
+.table td{
+	padding: 5px 10px;
+	border: 1px solid #eee;
+	text-align: center;
+}
+.table tbody tr:nth-child(odd){
+	background: rgb(148, 192, 233);
+}
+.table tbody tr:nth-child(even){
+	background: #e9d4d4;
+}
+.trHead {
+    background-color: rgb(213, 224, 247);
+}
+.tdHead {
+    width: 30px;
+}
+/* ------------------------------------- таблица расписание */
+
+/* .displayShow {
+    display: none;
+} */
+/* ------------ правая часть - отобрадение навигационных окон */
