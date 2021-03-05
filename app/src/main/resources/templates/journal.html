@@ -16,7 +16,6 @@
             <div>
                 <p th:text="${teacher.getSecondName()}+' '+${teacher.getName()}+' '+${teacher.getPatronymic()}"></p>
             </div>
-<<<<<<< HEAD
             <div class="divLeft">
                 <form th:action="@{}" method="post">
                     <input type="submit" value="Занятия сегодня" id="myMain">
@@ -38,21 +37,7 @@
         <div id="divRight">
             <div class="divRight" id="divMain">
                 <p>Сегодняшние занятия</p>
-=======
-            <div class="divRight">
-                <p id="myMain">Занятия сегодня</p>
-                <p id="mySchedule">Мое расписание</p>
-                <p id="myGroups">Мои группы</p>
-                <p id="mySubject">Мои предметы</p>
 
-                <form th:action="@{/logout}" method="post"><input type="submit" value="выйти" id="myExit"></form>
-
-            </div>
-        </div>
-        <div id="divLeft">
-            <div class="divLeft displayShow" id="divMain">
-                <p>Вывести дату</p>
->>>>>>> 77ca62805d89118358f7d9797eb56e7714305f25
                 <table>
                     <tr>
                         <td>1.</td>
