@@ -5,6 +5,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+/** Интерфейс для запросов в таблицу "учителя" базы данных
+ * @author Nikita Platonov
+ * @author Danil Belonogov
+ */
 @Repository
 public interface TeachersRepository extends JpaRepository<Teacher, Long> {
 

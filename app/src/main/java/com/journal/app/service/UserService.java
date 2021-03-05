@@ -15,6 +15,10 @@ import javax.transaction.Transactional;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
+/** Класс сервис пользователя приложения
+ * @see UserDetailsService
+ * @author Nikita Platonov
+ */
 @Service
 public class UserService implements UserDetailsService {
 
@@ -25,10 +29,20 @@ public class UserService implements UserDetailsService {
         this.usersRepository = usersRepository;
     }
 
+    /** Метод поиска пользователя в базе данных
+     * @param login
+     * @return usersRepository
+     */
     public User findByLogin(String login){
         return usersRepository.findByLogin(login);
     }
 
+    /** Метод загружает пользователя из базе данных по логину
+     * @param login
+     * @return user
+     * Если пользователь не существует, то
+     * @throws UsernameNotFoundException
+     */
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
@@ -39,6 +53,11 @@ public class UserService implements UserDetailsService {
         return new org.springframework.security.core.userdetails.User(user.getLogin(), user.getPassword(), mapRolesToAuthorities(user.getRoles()));
     }
 
+    /** Метод для присвоения роли пользователю
+     * @param roles
+     * @see GrantedAuthority
+     * @see SimpleGrantedAuthority
+     */
     private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){
         return roles.stream().map(r -> new SimpleGrantedAuthority(r.getName())).collect(Collectors.toList());
     }

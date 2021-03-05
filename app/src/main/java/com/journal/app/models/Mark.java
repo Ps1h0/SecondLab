@@ -3,6 +3,9 @@ package com.journal.app.models;
 import javax.persistence.*;
 import java.util.Date;
 
+/** Класс, соответствующий таблице "оценки" в базе данных, предназначен для хранения данных
+ * @author Nikita Platonov
+ */
 @Entity
 @Table(name = "marks")
 public class Mark {

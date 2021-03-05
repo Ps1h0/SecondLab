@@ -2,6 +2,9 @@ package com.journal.app.models;
 
 import javax.persistence.*;
 
+/** Класс, соответствующий таблице "роли пользователей" в базе данных, предназначен для хранения данных
+ * @author Nikita Platonov
+ */
 @Entity
 @Table(name = "user_roles")
 public class UserRole {

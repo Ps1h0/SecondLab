@@ -3,6 +3,9 @@ package com.journal.app.models;
 import javax.persistence.*;
 import java.util.Collection;
 
+/** Класс, соответствующий таблице "группы" в базе данных, предназначен для хранения данных
+ * @author Nikita Platonov
+ */
 @Entity
 @Table(name = "groups")
 public class Group {

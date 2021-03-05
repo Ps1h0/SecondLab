@@ -4,6 +4,9 @@ import javax.persistence.*;
 import java.sql.Date;
 import java.util.Collection;
 
+/** Класс, соответствующий таблице "посещаемость" в базе данных, предназначен для хранения данных
+ * @author Nikita Platonov
+ */
 @Entity
 @Table(name = "attendance")
 public class Attendance {

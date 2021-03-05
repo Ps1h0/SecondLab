@@ -10,14 +10,11 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
+/** Класс контроллер журнала преподавателя. Определены переходы на страницу журнала и дочерние страницы
+ * @author Nikita Platonov
+ */
 @Controller
 public class JournalController {
 
@@ -30,6 +27,13 @@ public class JournalController {
     @Autowired
     LessonsRepository lessonsRepository;
 
+    /** Метод перехода на страницу журнала преподавателя после аутентификации пользователя
+     * @see Model
+     * @see Authentication
+     * @see Teacher
+     * @param model
+     * @return journal page
+     */
     @RequestMapping("/journal")
     public String journalPage(Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -38,6 +42,14 @@ public class JournalController {
                 model.addAttribute("teacher", teacher);
         return "journal";
     }
+
+    /** Метод перехода на страницу предметов преподавателя
+     * @see Model
+     * @see Authentication
+     * @see Teacher
+     * @param model
+     * @return subjects page
+     */
     @RequestMapping("journal/subjects")
     public String getSubjects(Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();

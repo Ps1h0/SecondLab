@@ -3,6 +3,9 @@ package com.journal.app.models;
 import javax.persistence.*;
 import java.util.Collection;
 
+/** Класс, соответствующий таблице "студенты" в базе данных, предназначен для хранения данных
+ * @author Nikita Platonov
+ */
 @Entity
 @Table(name = "students")
 public class Student {
