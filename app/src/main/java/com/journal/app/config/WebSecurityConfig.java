@@ -29,8 +29,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /** Метод, определяющий, по каким адресам могут переходить авторизованные и неавторизованные пользователи,
      * переадресации страницы
-     * @param http
-     * @throws Exception
+     * @param http - параметр для настройки
+     * @throws Exception - для метода authorizeRequests()
+     * @see HttpSecurity
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
