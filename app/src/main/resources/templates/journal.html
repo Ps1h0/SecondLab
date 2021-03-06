@@ -7,7 +7,7 @@
     <title>Журнал</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-    <link rel='stylesheet' type='text/css' media='screen' href='../static/css/journal.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/css/journal.css'>
     <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 </head>
 <body>
@@ -17,19 +17,19 @@
                 <p th:text="${teacher.getSecondName()}+' '+${teacher.getName()}+' '+${teacher.getPatronymic()}"></p>
             </div>
             <div class="divLeft">
-                <form th:action="@{}" method="post">
-                    <input type="submit" value="Занятия сегодня" id="myMain">
-                </form>
-                <form th:action="@{}" method="post">
-                    <input type="submit" value="Мое расписание" id="mySchedule">
-                </form>
-                <form th:action="@{}" method="post">
-                    <input type="submit" value="Мои группы" id="myGroups">
-                </form>
-                <form th:action="@{}" method="post">
-                    <input type="submit" value="Мои предметы" id="mySubjects">
-                </form>
-                <form action="/logout">
+<!--                <form th:action="@{}" method="post">-->
+<!--                    <input type="submit" value="Занятия сегодня" id="myMain">-->
+<!--                </form>-->
+<!--                <form th:action="@{}" method="post">-->
+<!--                    <input type="submit" value="Мое расписание" id="mySchedule">-->
+<!--                </form>-->
+<!--                <form th:action="@{}" method="post">-->
+<!--                    <input type="submit" value="Мои группы" id="myGroups">-->
+<!--                </form>-->
+<!--                <form th:action="@{}" method="post">-->
+<!--                    <input type="submit" value="Мои предметы" id="mySubjects">-->
+<!--                </form>-->
+                <form th:action="@{/logout}" method="post">
                     <input type="submit" value="Выйти" id="myExit">
                 </form>
             </div>
@@ -37,10 +37,6 @@
         <div id="divRight">
             <div class="divRight" id="divMain">
                 <p>Сегодняшние занятия</p>
-<<<<<<< HEAD
-=======
-
->>>>>>> ff82e505ef4746c932ca6de9d2e098844b4dceb3
                 <table>
                     <tr>
                         <td>1.</td>
