@@ -8,6 +8,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
     <link rel='stylesheet' type='text/css' media='screen' href='../static/css/journal.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../static/css/subject.css'>
     <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 </head>
 <body>
@@ -36,48 +37,58 @@
         </div>
         <div id="divRight">
             <div class="divRight" id="divMySubject">
+                
                <span>Предмет:</span><p id="nameSubject">Название предмета</p>
                 <table>
                     <tr>
                         <td></td>
                         <td></td>
-                        <td>дата</td>
-                        <td>дата</td>
-                        <td>дата</td>
-                        <td>дата</td>
-                        <td>дата</td>
+                        <td class="date">дата</td>
+                        <td class="date">дата</td>
+                        <td class="date">дата</td>
+                        <td class="date">дата</td>
+                        <td class="date">дата</td>
                     </tr>
                     <tr>
                         <td>1</td>
                         <td>Student</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>5</td>
+                        <td class="mark">5</td>
+                        <td class="mark">4</td>
+                        <td class="mark">3</td>
+                        <td class="mark">1</td>
+                        <td class="mark">2</td>
                     </tr>
                     <tr>
                         <td>1</td>
                         <td>Student</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>5</td>
+                        <td class="mark">3</td>
+                        <td class="mark">4</td>
+                        <td class="mark">3</td>
+                        <td class="mark">4</td>
+                        <td class="mark">5</td>
                     </tr>
                     <tr>
                         <td>1</td>
                         <td>Student</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>5</td>
+                        <td class="mark">5</td>
+                        <td class="mark">5</td>
+                        <td class="mark">5</td>
+                        <td class="mark">5</td>
+                        <td class="mark">5</td>
                     </tr>
                 </table>
             </div>
         </div>
     </div>
+    <div id="context-menu-date" class="context-menu" style="display: none;">
+        <ul>
+            <li><a href="#">5</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">1</a></li>
+        </ul>
+    </div>
 </body>
-<script src='/js/journal.js'></script>
+<script src='../static/js/subject.js'></script>
 </html>
