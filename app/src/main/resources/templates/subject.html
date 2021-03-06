@@ -41,43 +41,71 @@
                     <tr>
                         <td></td>
                         <td></td>
-                        <td>дата</td>
-                        <td>дата</td>
-                        <td>дата</td>
-                        <td>дата</td>
-                        <td>дата</td>
+                        <td class="date">20.03.2020</td>
+                        <td class="date">20.03.2020</td>
+                        <td class="date">20.03.2020</td>
+                        <td class="date">20.03.2020</td>
+                        <td class="date">20.03.2020</td>
                     </tr>
                     <tr>
                         <td>1</td>
                         <td>Student</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>5</td>
+                        <td class="mark">5</td>
+                        <td class="mark">4</td>
+                        <td class="mark">3</td>
+                        <td class="mark">1</td>
+                        <td class="mark">2</td>
                     </tr>
                     <tr>
                         <td>1</td>
                         <td>Student</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>5</td>
+                        <td class="mark">3</td>
+                        <td class="mark">4</td>
+                        <td class="mark">3</td>
+                        <td class="mark">4</td>
+                        <td class="mark">5</td>
                     </tr>
                     <tr>
                         <td>1</td>
                         <td>Student</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>5</td>
+                        <td class="mark">5</td>
+                        <td class="mark">5</td>
+                        <td class="mark">5</td>
+                        <td class="mark">5</td>
+                        <td class="mark">5</td>
                     </tr>
                 </table>
+                <form action="" method="post">
+                    <input type="submit" value="Посещаемость">
+                </form>
+            </div>
+            <div class="date-info">
+                <form action="" method="post">
+                    <p id="date-info"></p>
+                    <p>План преподавателя</p>
+                    <textarea name="text-teacher-plan" id="text-teacher-plan" cols="40" rows="5"></textarea>
+                    <p>Фактическое выполнение</p>
+                    <textarea name="text-actual-implementation" id="text-teacher-plan" cols="40" rows="5"></textarea><br>
+                    <input type="submit" value="Сохранить">
+                </form>
             </div>
         </div>
     </div>
+    <div id="context-menu-mark" class="context-menu" style="display: none;">
+        <ul class="ul-mark">
+            <li><a href="#">5</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">1</a></li>
+        </ul>
+    </div>
+    <div id="context-menu-date" class="context-menu" style="display: none;">
+        <ul class="ul-date">
+            <li><input type="date" name="menu-date" id="menu-date"></li>
+            <li><button id="apply">Установить</button></li>
+        </ul>
+    </div>
 </body>
-<script src='/js/journal.js'></script>
+<script src='/js/subject.js'></script>
 </html>
