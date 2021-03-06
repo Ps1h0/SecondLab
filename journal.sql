@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Мар 02 2021 г., 13:00
+-- Время создания: Мар 03 2021 г., 20:11
 -- Версия сервера: 10.4.8-MariaDB
 -- Версия PHP: 7.3.11
 
@@ -397,8 +397,8 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`role_id`, `name`) VALUES
-(1, 'user'),
-(2, 'admin');
+(1, 'ROLE_USER'),
+(2, 'ROLE_ADMIN');
 
 -- --------------------------------------------------------
 
@@ -655,8 +655,32 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `login`, `password`, `teacher_id`) VALUES
-(1, 'test1', 'pass1', 1),
-(2, 'test2', 'pass2', 2);
+(1, 'login1', '$2y$12$GYBJyo6bU8kXpYEVxHl3I.11ZrHiSnZ51aDNqoT.UEP8xJicwnSSW', 1),
+(2, 'login2', '$2y$12$GYBJyo6bU8kXpYEVxHl3I.11ZrHiSnZ51aDNqoT.UEP8xJicwnSSW', 2),
+(3, 'login3', '$2y$12$GYBJyo6bU8kXpYEVxHl3I.11ZrHiSnZ51aDNqoT.UEP8xJicwnSSW', 3),
+(4, 'login4', '$2y$12$GYBJyo6bU8kXpYEVxHl3I.11ZrHiSnZ51aDNqoT.UEP8xJicwnSSW', 4),
+(5, 'login5', '$2y$12$T8Yv/z2Vlnyo7mlplZS/duQm.VoX/JnXI5QTDwZv/ONCQsdhAQCta', 5),
+(6, 'login6', '$2y$12$GYBJyo6bU8kXpYEVxHl3I.11ZrHiSnZ51aDNqoT.UEP8xJicwnSSW', 6),
+(7, 'login7', '$2y$12$GYBJyo6bU8kXpYEVxHl3I.11ZrHiSnZ51aDNqoT.UEP8xJicwnSSW', 7),
+(8, 'login8', '$2y$12$GYBJyo6bU8kXpYEVxHl3I.11ZrHiSnZ51aDNqoT.UEP8xJicwnSSW', 8),
+(9, 'login9', '$2y$12$GYBJyo6bU8kXpYEVxHl3I.11ZrHiSnZ51aDNqoT.UEP8xJicwnSSW', 9),
+(10, 'login10', '$2y$12$GYBJyo6bU8kXpYEVxHl3I.11ZrHiSnZ51aDNqoT.UEP8xJicwnSSW', 10),
+(11, 'login11', '$2y$12$GYBJyo6bU8kXpYEVxHl3I.11ZrHiSnZ51aDNqoT.UEP8xJicwnSSW', 11),
+(12, 'login12', '$2y$12$GYBJyo6bU8kXpYEVxHl3I.11ZrHiSnZ51aDNqoT.UEP8xJicwnSSW', 12),
+(13, 'login13', '$2y$12$GYBJyo6bU8kXpYEVxHl3I.11ZrHiSnZ51aDNqoT.UEP8xJicwnSSW', 13),
+(14, 'login14', '$2y$12$GYBJyo6bU8kXpYEVxHl3I.11ZrHiSnZ51aDNqoT.UEP8xJicwnSSW', 14),
+(15, 'login15', '$2y$12$GYBJyo6bU8kXpYEVxHl3I.11ZrHiSnZ51aDNqoT.UEP8xJicwnSSW', 15),
+(16, 'login16', '$2y$12$GYBJyo6bU8kXpYEVxHl3I.11ZrHiSnZ51aDNqoT.UEP8xJicwnSSW', 16),
+(17, 'login17', '$2y$12$GYBJyo6bU8kXpYEVxHl3I.11ZrHiSnZ51aDNqoT.UEP8xJicwnSSW', 17),
+(18, 'login18', '$2y$12$GYBJyo6bU8kXpYEVxHl3I.11ZrHiSnZ51aDNqoT.UEP8xJicwnSSW', 18),
+(19, 'login19', '$2y$12$GYBJyo6bU8kXpYEVxHl3I.11ZrHiSnZ51aDNqoT.UEP8xJicwnSSW', 19),
+(20, 'login20', '$2y$12$GYBJyo6bU8kXpYEVxHl3I.11ZrHiSnZ51aDNqoT.UEP8xJicwnSSW', 20),
+(21, 'login21', '$2y$12$GYBJyo6bU8kXpYEVxHl3I.11ZrHiSnZ51aDNqoT.UEP8xJicwnSSW', 21),
+(22, 'login22', '$2y$12$GYBJyo6bU8kXpYEVxHl3I.11ZrHiSnZ51aDNqoT.UEP8xJicwnSSW', 22),
+(23, 'login23', '$2y$12$GYBJyo6bU8kXpYEVxHl3I.11ZrHiSnZ51aDNqoT.UEP8xJicwnSSW', 23),
+(24, 'login24', '$2y$12$GYBJyo6bU8kXpYEVxHl3I.11ZrHiSnZ51aDNqoT.UEP8xJicwnSSW', 24),
+(25, 'login25', '$2y$12$GYBJyo6bU8kXpYEVxHl3I.11ZrHiSnZ51aDNqoT.UEP8xJicwnSSW', 25),
+(26, 'login26', '$2y$12$GYBJyo6bU8kXpYEVxHl3I.11ZrHiSnZ51aDNqoT.UEP8xJicwnSSW', 26);
 
 -- --------------------------------------------------------
 
@@ -808,7 +832,7 @@ ALTER TABLE `teachers`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT для таблицы `user_roles`
