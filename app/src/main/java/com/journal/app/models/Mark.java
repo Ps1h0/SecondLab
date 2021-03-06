@@ -15,9 +15,8 @@ public class Mark {
     @Column(name = "mark_id")
     private Long markId;
 
-    @OneToOne
-    @JoinColumn(name = "student_id")
-    private Student studentId;
+    @Column(name = "student_id")
+    private Long studentId;
 
     @Column(name = "mark")
     private Integer mark;
@@ -25,9 +24,8 @@ public class Mark {
     @Column(name = "date")
     private Date date;
 
-    @OneToOne
-    @JoinColumn(name = "lesson_id")
-    private Lesson lessonId;
+    @Column(name = "lesson_id")
+    private Long lessonId;
 
     public Long getMarkId() {
         return markId;
@@ -35,14 +33,6 @@ public class Mark {
 
     public void setMarkId(Long markId) {
         this.markId = markId;
-    }
-
-    public Student getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(Student studentId) {
-        this.studentId = studentId;
     }
 
     public Integer getMark() {
@@ -61,11 +51,19 @@ public class Mark {
         this.date = date;
     }
 
-    public Lesson getLessonId() {
+    public Long getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(Long studentId) {
+        this.studentId = studentId;
+    }
+
+    public Long getLessonId() {
         return lessonId;
     }
 
-    public void setLessonId(Lesson lessonId) {
+    public void setLessonId(Long lessonId) {
         this.lessonId = lessonId;
     }
 }
