@@ -29,7 +29,7 @@ public class SubjectsController {
      * @see Model
      * @see Authentication
      * @see Teacher
-     * @param model
+     * @param model - для добавления данных на веб-страницу
      * @return subjects page
      */
     @RequestMapping("/journal/subjects")

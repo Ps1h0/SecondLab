@@ -37,22 +37,6 @@ public class JournalController {
         return "journal";
     }
 
-    /** Метод перехода на страницу предметов преподавателя
-     * @see Model
-     * @see Authentication
-     * @see Teacher
-     * @param model - для добавления данных на веб-страницу
-     * @return subjects page
-     */
-    @RequestMapping("journal/subjects")
-    public String getSubjects(Model model){
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String name = auth.getName();
-        Teacher teacher = teachersRepository.findTeacherByLogin(name);
-        Long id = teacher.getTeacherId();
-        Iterable<Lesson> lessons = lessonsRepository.getLessons(id);
-        model.addAttribute("lessons", lessons);
-        model.addAttribute("teacher",teacher);
-        return "subjects";
-    }
+
+
 }

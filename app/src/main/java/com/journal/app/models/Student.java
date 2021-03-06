@@ -24,9 +24,9 @@ public class Student {
     @Column(name = "patronymic")
     private String patronymic;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "group_id")
-    private Group groupId;
+
+    @Column(name = "group_id")
+    private Long groupId;
 
     public Long getStudentId() {
         return studentId;
@@ -60,11 +60,11 @@ public class Student {
         this.patronymic = patronymic;
     }
 
-    public Group getGroupId() {
+    public Long getGroupId() {
         return groupId;
     }
 
-    public void setGroupId(Group groupId) {
+    public void setGroupId(Long groupId) {
         this.groupId = groupId;
     }
 }

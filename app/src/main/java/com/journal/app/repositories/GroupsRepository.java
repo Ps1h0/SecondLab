@@ -12,8 +12,8 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface GroupsRepository extends JpaRepository<Group, Long> {
-    @Query(value = "select name,group_id from jurnalshema.groups WHERE group_id =" +
-            " ANY (select group_id from jurnalshema.students where student_id = " +
+    @Query(value = "select `groups`.name,`groups`.group_id from jurnalshema.groups WHERE `groups`.group_id =" +
+            " ANY (select students.group_id from jurnalshema.students where student_id = " +
             "ANY (select student_id from jurnalshema.attendance where lesson_id = " +
             "ANY (select lesson_id from jurnalshema.lessons where lesson_id = " +
             "ANY (select lesson_id from jurnalshema.schedule where teacher_id = " +

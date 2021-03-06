@@ -6,13 +6,20 @@ import java.util.Collection;
 /** Класс, соответствующий таблице "пользователи" в базе данных, предназначен для хранения данных
  * @author Nikita Platonov
  */
+
+import javax.persistence.*;
+import java.util.Collection;
+
+/** Класс, соответствующий таблице "пользователи" в базе данных, предназначен для хранения данных
+ * @author Nikita Platonov
+ */
 @Entity
-@Table(name = "users")
+@Table( name = "users")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "user_id")
+    @Column( name = "user_id")
     private Long userId;
 
     @Column(name = "login")
@@ -26,8 +33,8 @@ public class User {
 
     @ManyToMany
     @JoinTable(name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    joinColumns = @JoinColumn(name = "user_id"),
+    inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Collection<Role> roles;
 
     public Collection<Role> getRoles() {

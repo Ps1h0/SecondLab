@@ -40,5 +40,4 @@ public class GroupsController {
         return "groups";
     }
 
-
 }

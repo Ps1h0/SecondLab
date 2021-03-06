@@ -22,9 +22,8 @@ public class Attendance {
     @Column(name = "date")
     private Date date;
 
-    @OneToOne
-    @JoinColumn(name = "lesson_id")
-    private Lesson lessonId;
+    @Column(name = "lesson_id")
+    private Long lessonId;
 
     @Column(name = "presence")
     private boolean presence;
@@ -53,11 +52,11 @@ public class Attendance {
         this.date = date;
     }
 
-    public Lesson getLessonId() {
+    public Long getLessonId() {
         return lessonId;
     }
 
-    public void setLessonId(Lesson lessonId) {
+    public void setLessonId(Long lessonId) {
         this.lessonId = lessonId;
     }
 
