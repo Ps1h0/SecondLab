@@ -1,6 +1,5 @@
 package com.journal.app.controllers;
 
-import com.journal.app.models.Lesson;
 import com.journal.app.models.Teacher;
 import com.journal.app.repositories.LessonsRepository;
 import com.journal.app.repositories.TeachersRepository;
