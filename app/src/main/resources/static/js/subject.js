@@ -1,76 +1,46 @@
 $(document).ready(function() {
 
-    let x;
-    let y;
-
-    document.oncontextmenu = function () { return false; };
-
-    // $(document).mousedown(function (event) {   
-                
-    //     if (event.which === 1) {
-            
-    //         console.log('1'); 
-            
-    //         $('il').click( () => {
-    //             console.log(1);
-    //         })
-
-    //         x = event.pageX;
-    //         y = event.pageY;
-
-    //         document.getElementById("context-menu-date").style.display = 'none';
-    //     }
-
-    //     if (event.which === 3 && $('#divMySubject .date').attr('class') == 'date') {
-
-            
-
-    //     }
-
-    // });
-    
-
     document.oncontextmenu = function () { return false; };
  
     let field;
 
-    $('.mark, ul').mousedown(function (event) {            
+    $('.attendance, .ul-attendance').mousedown(function (event) {            
 
         if (event.which === 1) {
-            if (event.target.parentNode.id === "show") {
-                showAlert();                    
-            }
-            if (event.target.parentNode.id === "change") {
-                changeColor();
-            }
-
-            
-
             field.innerText = event.target.innerText;
-            document.getElementById("context-menu-date").style.display = 'none';
+            document.getElementById("context-menu-attendance").style.display = 'none';
         }
-        // console.log($(event.target)[0].nodeName);
-        if (event.which === 3 && $('#divMySubject .mark').attr('class') == 'mark') {
-            console.log(event.target.innerText);
+        if (event.which === 3 && $('#divMySubject .attendance').attr('class') == 'attendance') {
+       
+            field = event.target;
+
+            document.getElementById("context-menu-attendance").style.display = '';
+            $('.context-menu').css({ left: event.pageX + 'px', top: event.pageY + 'px' });
+        }
+    });
+
+    $('.date, .ul-date').mousedown(function (event) {            
+
+        if (event.which === 1) {
+            
+            $('#apply').click( () => {
+                var date = new Date($('#menu-date').val());
+                field.innerText = [date.getDate(), date.getMonth(), date.getFullYear()].join('.');
+                document.getElementById("context-menu-date").style.display = 'none';
+            })
+        }
+        if (event.which === 3 && $('#divMySubject .date').attr('class') == 'date') {
+        
             field = event.target;
 
             document.getElementById("context-menu-date").style.display = '';
             $('.context-menu').css({ left: event.pageX + 'px', top: event.pageY + 'px' });
         }
     });
-
-    $('li').click( () => {
-        console.log(1);
-    })
-
-    // $('#divMySubject .date').click( () => {
-    //     let position = $('#divMySubject .date').offset();
-    //     console.log(x);
-    //     console.log(y);
-    //     document.getElementById("context-menu-date").style.display = '';
-    //     $('context-menu').css({'left': x + 'px', 'top': y + 'px'});
-    // })
-
     
+    $('.date').click( (event) => {
+        $('#date-info').text(event.target.innerText);
+        $('.date-info').css('display', 'block');
+    })
 
 });

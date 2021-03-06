@@ -40,3 +40,21 @@
 .mark:hover {
   background-color: rgb(136, 153, 173);
 }
+.attendance:hover {
+  background-color: rgb(136, 153, 173);
+}
+
+input[type=data] {
+  
+}
+#context-menu-date {
+  width: 155px;
+}
+.date-info {
+  border-radius: 10px;
+  background-color: #ccced8;
+  padding: 20px;
+  margin: 20px;
+  width: 500px;
+  display: none;
+}

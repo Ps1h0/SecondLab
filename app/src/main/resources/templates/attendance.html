@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Урок</title>
+    <title>Посещаемость</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-    <link rel='stylesheet' type='text/css' media='screen' href='/css/journal.css'>
-    <link rel='stylesheet' type='text/css' media='screen' href='/css/subject.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../static/css/journal.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../static/css/subject.css'>
     <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 </head>
 <body>
@@ -51,33 +51,15 @@
                     <tr>
                         <td>1</td>
                         <td>Student</td>
-                        <td class="mark">5</td>
-                        <td class="mark">4</td>
-                        <td class="mark">3</td>
-                        <td class="mark">1</td>
-                        <td class="mark">2</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Student</td>
-                        <td class="mark">3</td>
-                        <td class="mark">4</td>
-                        <td class="mark">3</td>
-                        <td class="mark">4</td>
-                        <td class="mark">5</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Student</td>
-                        <td class="mark">5</td>
-                        <td class="mark">5</td>
-                        <td class="mark">5</td>
-                        <td class="mark">5</td>
-                        <td class="mark">5</td>
+                        <td class="attendance">+</td>
+                        <td class="attendance">-</td>
+                        <td class="attendance">+</td>
+                        <td class="attendance">+</td>
+                        <td class="attendance">-</td>
                     </tr>
                 </table>
                 <form action="" method="post">
-                    <input type="submit" value="Посещаемость">
+                    <input type="submit" value="Оценки">
                 </form>
             </div>
             <div class="date-info">
@@ -92,13 +74,10 @@
             </div>
         </div>
     </div>
-    <div id="context-menu-mark" class="context-menu" style="display: none;">
-        <ul class="ul-mark">
-            <li><a href="#">5</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">1</a></li>
+    <div id="context-menu-attendance" class="context-menu" style="display: none;">
+        <ul class="ul-attendance">
+            <li><a href="#">+</a></li>
+            <li><a href="#">-</a></li>
         </ul>
     </div>
     <div id="context-menu-date" class="context-menu" style="display: none;">
@@ -108,5 +87,5 @@
         </ul>
     </div>
 </body>
-<script src='/js/subject.js'></script>
+<script src='../static/js/subject.js'></script>
 </html>
