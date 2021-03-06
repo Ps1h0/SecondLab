@@ -4,7 +4,6 @@ import com.journal.app.models.Lesson;
 import com.journal.app.models.Teacher;
 import com.journal.app.repositories.LessonsRepository;
 import com.journal.app.repositories.TeachersRepository;
-import com.journal.app.repositories.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,13 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class JournalController {
-
-    @Autowired
-    UsersRepository usersRepository;
-
     @Autowired
     TeachersRepository teachersRepository;
-
     @Autowired
     LessonsRepository lessonsRepository;
 
@@ -31,7 +25,7 @@ public class JournalController {
      * @see Model
      * @see Authentication
      * @see Teacher
-     * @param model
+     * @param model - для добавления данных на веб-страницу
      * @return journal page
      */
     @RequestMapping("/journal")
@@ -47,7 +41,7 @@ public class JournalController {
      * @see Model
      * @see Authentication
      * @see Teacher
-     * @param model
+     * @param model - для добавления данных на веб-страницу
      * @return subjects page
      */
     @RequestMapping("journal/subjects")

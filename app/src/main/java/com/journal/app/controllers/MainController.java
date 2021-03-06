@@ -20,8 +20,8 @@ public class MainController {
     }
 
     /** Метод перехода на страницу аутентификации пользователя.
-     * @param error
-     * @param model
+     * @param error - для вывода сообщения об ошибке аутентификации
+     * @param model - для добавления данных на веб-страницу
      * @see Model
      * @return sign in page
      */

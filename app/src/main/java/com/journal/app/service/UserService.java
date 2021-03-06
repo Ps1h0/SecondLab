@@ -30,7 +30,7 @@ public class UserService implements UserDetailsService {
     }
 
     /** Метод поиска пользователя в базе данных
-     * @param login
+     * @param login - для поиска
      * @return usersRepository
      */
     public User findByLogin(String login){
@@ -38,10 +38,10 @@ public class UserService implements UserDetailsService {
     }
 
     /** Метод загружает пользователя из базе данных по логину
-     * @param login
+     * @param login - для поиска
      * @return user
      * Если пользователь не существует, то
-     * @throws UsernameNotFoundException
+     * @throws UsernameNotFoundException - в случае отсутствия данных о пользователе в базе
      */
     @Override
     @Transactional
@@ -54,7 +54,7 @@ public class UserService implements UserDetailsService {
     }
 
     /** Метод для присвоения роли пользователю
-     * @param roles
+     * @param roles - список ролей
      * @see GrantedAuthority
      * @see SimpleGrantedAuthority
      */

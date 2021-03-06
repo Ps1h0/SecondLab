@@ -12,7 +12,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class MvcConfig implements WebMvcConfigurer {
 
     /** Метод, определяющий переход к страницам по адресу
-     * @param registry
+     * @param registry - для настройки адресации
+     * @see ViewControllerRegistry
      */
     public void addViewControllers(ViewControllerRegistry registry){
         registry.addViewController("/").setViewName("index");
