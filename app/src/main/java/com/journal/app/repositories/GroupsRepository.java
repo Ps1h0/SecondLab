@@ -20,4 +20,6 @@ public interface GroupsRepository extends JpaRepository<Group, Long> {
             "(select teacher_id from jurnalshema.teachers where teacher_id = ?1)))))", nativeQuery = true)
     Iterable<Group> getGroups(Long id);
 
+
+
 }

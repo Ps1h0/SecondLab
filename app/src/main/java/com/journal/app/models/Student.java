@@ -28,6 +28,7 @@ public class Student {
     @Column(name = "group_id")
     private Long groupId;
 
+
     public Long getStudentId() {
         return studentId;
     }

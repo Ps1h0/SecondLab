@@ -32,7 +32,7 @@ public class SubjectsController {
      * @param model - для добавления данных на веб-страницу
      * @return subjects page
      */
-    @RequestMapping("/journal/subjects")
+    @RequestMapping("/subjects")
     public String getSubjects(Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName();

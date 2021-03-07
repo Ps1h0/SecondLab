@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Группы</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <link rel='stylesheet' type='text/css' media='screen' href='/css/journal.css'>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+</head>
+<body>
+<div>
+    <div id="divLeft">
+        <div>
+            <p th:text="${teacher.getSecondName()}+' '+${teacher.getName()}+' '+${teacher.getPatronymic()}"></p>
+        </div>
+        <div class="divLeft">
+            <form action="@{}" method="post">
+                <input type="submit" value="Занятия сегодня" id="myMain">
+            </form>
+            <form action="@{}" method="post">
+                <input type="submit" value="Мое расписание" id="mySchedule">
+            </form>
+            <form th:action="@{/groups}" method="post">
+                <input type="submit" value="Мои группы" id="myGroups">
+            </form>
+            <form th:action="@{/subjects}" method="post">
+                <input type="submit" value="Мои предметы" id="mySubjects">
+            </form>
+            <form th:action="@{/logout}" method="post">
+                <input type="submit" value="Выйти" id="myExit">
+            </form>
+        </div>
+    </div>
+    <div id="divRight">
+        <div class="divRight" id="divMyGroups">
+            <h3>Студены группы</h3>
+            <table>
+
+                <tbody>
+                <tr th:each="student:${students}">
+                    <td th:text="${student.getSecondName()} +' '+${student.getName()} +' '+${student.getPatronymic()}">
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+<script src='/js/journal.js'></script>
+</html>

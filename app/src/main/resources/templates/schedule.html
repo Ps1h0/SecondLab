@@ -20,13 +20,13 @@
                 <form th:action="@{}" method="post">
                     <input type="submit" value="Мое расписание" id="mySchedule">
                 </form>
-                <form th:action="@{}" method="post">
+                <form th:action="@{/groups}" method="post">
                     <input type="submit" value="Мои группы" id="myGroups">
                 </form>
-                <form th:action="@{}" method="post">
+                <form th:action="@{/subjects}" method="post">
                     <input type="submit" value="Мои предметы" id="mySubjects">
                 </form>
-                <form action="/logout">
+                <form th:action="@{/logout}" method="post">
                     <input type="submit" value="Выйти" id="myExit">
                 </form>
             </div>
