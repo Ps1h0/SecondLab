@@ -36,18 +36,12 @@
     </div>
     <div id="divRight">
         <div class="divRight" id="divMyGroups">
-            <h3>Мои группы:</h3>
-            <table>
-                <tbody>
-                <tr th:each="group:${groups}">
-                    <td>
-                        <a th:href="@{'/group/' + ${group.getGroupId()}}">
-                            <p th:text="${group.getName()}"></p>
-                        </a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+            <h3 th:text="${group.getName()}"></h3>
+            <ol>
+                <li th:each="student:${students}">
+                     <span th:text="${student.getSecondName()} +' '+${student.getName()} +' '+${student.getPatronymic()}"></span>
+                </li>
+            </ol>
         </div>
     </div>
 </div>

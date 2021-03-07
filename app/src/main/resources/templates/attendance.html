@@ -18,7 +18,7 @@
             <p th:text="${teacher.getSecondName()}+' '+${teacher.getName()}+' '+${teacher.getPatronymic()}"></p>
         </div>
         <div class="divLeft">
-            <form th:action="@{}" method="post">
+            <form th:action="@{/journal}" method="post">
                 <input type="submit" value="Занятия сегодня" id="myMain">
             </form>
             <form th:action="@{/schedule}" method="post">
@@ -27,10 +27,10 @@
             <form th:action="@{/groups}" method="post">
                 <input type="submit" value="Мои группы" id="myGroups">
             </form>
-            <form th:action="@{/journal/subjects}" method="post">
+            <form th:action="@{/subjects}" method="post">
                 <input type="submit" value="Мои предметы" id="mySubjects">
             </form>
-            <form action="/logout">
+            <form th:action="@{/logout}" method="post">
                 <input type="submit" value="Выйти" id="myExit">
             </form>
         </div>

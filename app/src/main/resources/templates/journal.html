@@ -17,19 +17,19 @@
             <p th:text="${teacher.getSecondName()}+' '+${teacher.getName()}+' '+${teacher.getPatronymic()}"></p>
         </div>
         <div class="divLeft">
-            <form action="" method="post">
+            <form th:action="@{/journal}" method="post">
                 <input type="submit" value="Занятия сегодня" id="myMain">
             </form>
-            <form action="" method="post">
+            <form th:action="@{/schedule}" method="post">
                 <input type="submit" value="Мое расписание" id="mySchedule">
             </form>
-            <form th:action="@{/journal/groups}" method="post">
+            <form th:action="@{/groups}" method="post">
                 <input type="submit" value="Мои группы" id="myGroups">
             </form>
-            <form th:action="@{/journal/subjects}" method="post">
+            <form th:action="@{/subjects}" method="post">
                 <input type="submit" value="Мои предметы" id="mySubjects">
             </form>
-            <form action="/logout">
+            <form th:action="@{/logout}" method="post">
                 <input type="submit" value="Выйти" id="myExit">
             </form>
         </div>
@@ -37,13 +37,15 @@
     <div id="divRight">
         <div class="divRight" id="divMain">
             <p>Сегодняшние занятия</p>
-
             <table>
-                <tr>
-                    <td>1.</td>
-                    <td>lesson</td>
+                <tr th:each="schedule, i : ${schedules}">
+                    <td th:text="${i.index + 1}"></td>
+                    <th:block th:each="lesson : ${lessons}">
+                        <td th:text="${lesson.getName()}">
+                    </th:block>
                 </tr>
             </table>
+
         </div>
     </div>
 </div>
