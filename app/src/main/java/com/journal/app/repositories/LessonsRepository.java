@@ -15,4 +15,9 @@ public interface LessonsRepository extends JpaRepository<Lesson, Long> {
             "ANY (SELECT lesson_id FROM schedule WHERE teacher_id = " +
             "(SELECT teacher_id FROM teachers WHERE teacher_id=? ))", nativeQuery = true)
     Iterable<Lesson> getLessons(Long id);
+
+    Lesson getLessonByLessonId(Long id);
+
 }
+
+

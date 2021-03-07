@@ -47,7 +47,7 @@ public class GroupsController {
         String name = auth.getName();
         Teacher teacher = teachersRepository.findTeacherByLogin(name);
         model.addAttribute("teacher",teacher);
-        Iterable<Student> students = studentsRepository.getStudentsByGroupIdCustom(id);
+        Iterable<Student> students = studentsRepository.getStudentsByGroupId(id);
         model.addAttribute("students",students);
         Group group = groupsRepository.getOne(id);
         model.addAttribute("group",group);

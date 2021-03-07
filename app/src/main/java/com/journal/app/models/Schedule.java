@@ -25,7 +25,7 @@ public class Schedule {
     private String auditorium;
 
     @Column(name = "time")
-    private Time time;
+    private String time;
 
     @Column(name = "teacher_id")
     private Long teacherId;
@@ -62,11 +62,11 @@ public class Schedule {
         this.auditorium = auditorium;
     }
 
-    public Time getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Time time) {
+    public void setTime(String time) {
         this.time = time;
     }
 

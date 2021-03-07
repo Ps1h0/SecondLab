@@ -15,5 +15,7 @@ public interface StudentsRepository extends JpaRepository<Student, Long> {
     @Query(value = "SELECT * from students where students.group_id = (select `groups`.group_id from jurnalshema.groups where `groups`.group_id= ?)",nativeQuery = true)
     Iterable<Student> getStudentsByGroupIdCustom(Long id);
 
+    Iterable<Student> getStudentsByGroupId(Long id);
+
 
 }
