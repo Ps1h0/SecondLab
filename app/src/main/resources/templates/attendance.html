@@ -37,7 +37,7 @@
     </div>
     <div id="divRight">
         <div class="divRight" id="divMySubject">
-            <span>Предмет:</span><p id="nameSubject">Название предмета</p>
+            <span>Предмет:</span><p th:text="${lesson.getName()}" id="nameSubject"></p>
             <table>
                 <tr>
                     <td></td>
@@ -58,7 +58,7 @@
                     <td class="attendance">-</td>
                 </tr>
             </table>
-            <form action="" method="post">
+            <form th:action="@{'/subject/' + ${lesson.getLessonId()}}" method="post">
                 <input type="submit" value="Оценки">
             </form>
         </div>
