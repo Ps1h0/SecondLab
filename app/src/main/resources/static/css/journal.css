@@ -6,7 +6,7 @@
     width: 16%;
     left: 0%;
     top: 0%;
-    position: absolute;
+    position: fixed;
     text-align: center;
 }
 .divLeft  {
@@ -50,8 +50,8 @@ input[type=submit]:hover {
 /* правая часть - отобрадение навигационных окон ---------*/
 #divRight {
     background-color: rgb(145, 136, 136);
-    position: fixed;
-    height: 100%;
+    position: absolute;
+    /* height: 110%; */
     width: 84%;
     right: 0%;
     top: 0%;
@@ -185,3 +185,7 @@ input[type=submit]:hover {
     display: none;
 } */
 /* ------------ правая часть - отобрадение навигационных окон */
+
+body {
+    
+}
