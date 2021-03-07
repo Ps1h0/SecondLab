@@ -3,6 +3,9 @@ package com.journal.app.models;
 import javax.persistence.*;
 import java.util.Collection;
 
+/** Класс, соответствующий таблице "группы" в базе данных, предназначен для хранения данных
+ * @author Nikita Platonov
+ */
 @Entity
 @Table(name = "groups")
 public class Group {
@@ -14,17 +17,6 @@ public class Group {
 
     @Column(name = "name")
     private String name;
-
-    @OneToMany(fetch = FetchType.EAGER)
-    private Collection<Student> students;
-
-    public Collection<Student> getStudents() {
-        return students;
-    }
-
-    public void setStudents(Collection<Student> students) {
-        this.students = students;
-    }
 
     public Long getGroupId() {
         return groupId;
