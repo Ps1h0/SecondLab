@@ -10,4 +10,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface MarksRepository extends JpaRepository<Mark, Long> {
+
+    Iterable<Mark> getMarksByLessonId(Long id);
 }

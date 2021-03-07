@@ -1,8 +1,10 @@
 package com.journal.app.controllers;
 
 import com.journal.app.models.Lesson;
+import com.journal.app.models.Mark;
 import com.journal.app.models.Teacher;
 import com.journal.app.repositories.LessonsRepository;
+import com.journal.app.repositories.MarksRepository;
 import com.journal.app.repositories.TeachersRepository;
 import com.journal.app.repositories.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,9 @@ public class SubjectsController {
 
     @Autowired
     LessonsRepository lessonsRepository;
+
+    @Autowired
+    MarksRepository marksRepository;
 
     /** Метод перехода на страницу предметов преподавателя
      * @see Model
@@ -49,8 +54,10 @@ public class SubjectsController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName();
         Teacher teacher = teachersRepository.findTeacherByLogin(name);
+        Iterable<Mark> marks = marksRepository.getMarksByLessonId(id);
         model.addAttribute("lesson", lessonsRepository.getOne(id));
         model.addAttribute("teacher",teacher);
+        model.addAttribute("marks", marks);
         return "subject";
     }
 }
