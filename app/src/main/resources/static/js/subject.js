@@ -19,6 +19,21 @@ $(document).ready(function() {
         }
     });
 
+    $('.mark, .ul-mark').mousedown(function (event) {            
+
+        if (event.which === 1) {
+            field.innerText = event.target.innerText;
+            document.getElementById("context-menu-mark").style.display = 'none';
+        }
+        if (event.which === 3 && $('#divMySubject .mark').attr('class') == 'mark') {
+       
+            field = event.target;
+
+            document.getElementById("context-menu-mark").style.display = '';
+            $('.context-menu').css({ left: event.pageX + 'px', top: event.pageY + 'px' });
+        }
+    });
+
     $('.date, .ul-date').mousedown(function (event) {            
 
         if (event.which === 1) {
