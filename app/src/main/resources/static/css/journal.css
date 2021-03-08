@@ -6,7 +6,7 @@
     width: 16%;
     left: 0%;
     top: 0%;
-    position: absolute;
+    position: fixed;
     text-align: center;
 }
 .divLeft  {
@@ -25,7 +25,6 @@
     text-decoration: none;
     font-size: 20px;
     color: #84889b;
-
     display: block;
     transition: 0.3s;
 }
@@ -52,6 +51,7 @@ input[type=submit]:hover {
     background-color: rgb(145, 136, 136);
     position: fixed;
     height: 100%;
+    overflow-x: auto;
     width: 84%;
     right: 0%;
     top: 0%;
@@ -66,7 +66,7 @@ input[type=submit]:hover {
     /* border-radius: 15px; */
     margin: 2% auto;
     width: fit-content;
-    
+
 }
 #divMain {
     width: 220px;
@@ -124,21 +124,21 @@ input[type=submit]:hover {
     border-radius: 10px;
 }
 #divMySubject table{
-	border: 1px solid #eee;
-	table-layout: fixed;
-	width: 100%;
-	margin-bottom: 20px;
+    border: 1px solid #eee;
+    table-layout: auto;
+    width: 100%;
+    margin-bottom: 20px;
 }
 #divMySubject table th {
-	font-weight: bold;
-	padding: 5px;
-	background: #efefef;
-	border: 1px solid #dddddd;
+    font-weight: bold;
+    padding: 5px;
+    background: #efefef;
+    border: 1px solid #dddddd;
 }
 #divMySubject table td{
-	padding: 5px 10px;
-	border: 1px solid #eee;
-	text-align: center;
+    padding: 5px 10px;
+    border: 1px solid #eee;
+    text-align: center;
 
     /* width: 20%; */
 }
@@ -149,29 +149,38 @@ input[type=submit]:hover {
     width: 95%;
 
 }
+
+.scroll-table-body {
+    height: 350px;
+    overflow-x: scroll;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
 /* таблица расписание ------------------------- */
 .table{
-	border: 1px solid #eee;
-	table-layout: fixed;
-	width: 100%;
-	margin-bottom: 20px;
+    border: 1px solid #eee;
+    table-layout: fixed;
+    width: 100%;
+    margin-bottom: 20px;
 }
 .table th {
-	font-weight: bold;
-	padding: 5px;
-	background: #efefef;
-	border: 1px solid #dddddd;
+    font-weight: bold;
+    padding: 5px;
+    background: #efefef;
+    border: 1px solid #dddddd;
 }
 .table td{
-	padding: 5px 10px;
-	border: 1px solid #eee;
-	text-align: center;
+    padding: 5px 10px;
+    border: 1px solid #eee;
+    text-align: center;
 }
 .table tbody tr:nth-child(odd){
-	background: rgb(148, 192, 233);
+    background: rgb(148, 192, 233);
 }
 .table tbody tr:nth-child(even){
-	background: #e9d4d4;
+    background: #e9d4d4;
 }
 .trHead {
     background-color: rgb(213, 224, 247);
@@ -181,7 +190,15 @@ input[type=submit]:hover {
 }
 /* ------------------------------------- таблица расписание */
 
+.table-mark{
+
+}
+
 /* .displayShow {
     display: none;
 } */
 /* ------------ правая часть - отобрадение навигационных окон */
+
+body {
+
+}
