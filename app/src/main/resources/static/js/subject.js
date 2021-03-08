@@ -58,4 +58,15 @@ $(document).ready(function() {
         $('.date-info').css('display', 'block');
     })
 
+    $('#btn-add-task').click( () => {
+        console.log('btn-add-task');
+        let task = $('#text-task').val();
+        console.log(task);
+        $('#ul-task').append(`
+            <li>
+                <input type="checkbox"><span>${task}</span>
+            </li>`);
+        $('#text-task').val('');
+    })
+
 });
