@@ -3,6 +3,9 @@ package com.journal.app.models;
 import javax.persistence.*;
 import java.util.Collection;
 
+/** Класс, соответствующий таблице "студенты" в базе данных, предназначен для хранения данных
+ * @author Nikita Platonov
+ */
 @Entity
 @Table(name = "students")
 public class Student {
@@ -21,9 +24,8 @@ public class Student {
     @Column(name = "patronymic")
     private String patronymic;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "group_id")
-    private Group groupId;
+    @Column(name = "group_id")
+    private Long groupId;
 
     public Long getStudentId() {
         return studentId;
@@ -57,11 +59,11 @@ public class Student {
         this.patronymic = patronymic;
     }
 
-    public Group getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(Group groupId) {
-        this.groupId = groupId;
-    }
+//    public Group getGroupId() {
+//        return groupId;
+//    }
+//
+//    public void setGroupId(Group groupId) {
+//        this.groupId = groupId;
+//    }
 }

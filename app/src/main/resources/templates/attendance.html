@@ -7,85 +7,85 @@
     <title>Посещаемость</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-    <link rel='stylesheet' type='text/css' media='screen' href='../static/css/journal.css'>
-    <link rel='stylesheet' type='text/css' media='screen' href='../static/css/subject.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/css/journal.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/css/subject.css'>
     <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 </head>
 <body>
-    <div>
-        <div id="divLeft">
-            <div>
-                <p th:text="${teacher.getSecondName()}+' '+${teacher.getName()}+' '+${teacher.getPatronymic()}"></p>
-            </div>
-            <div class="divLeft">
-                <form th:action="@{}" method="post">
-                    <input type="submit" value="Занятия сегодня" id="myMain">
-                </form>
-                <form th:action="@{}" method="post">
-                    <input type="submit" value="Мое расписание" id="mySchedule">
-                </form>
-                <form th:action="@{}" method="post">
-                    <input type="submit" value="Мои группы" id="myGroups">
-                </form>
-                <form th:action="@{}" method="post">
-                    <input type="submit" value="Мои предметы" id="mySubjects">
-                </form>
-                <form action="/logout">
-                    <input type="submit" value="Выйти" id="myExit">
-                </form>
-            </div>
+<div>
+    <div id="divLeft">
+        <div>
+            <p th:text="${teacher.getSecondName()}+' '+${teacher.getName()}+' '+${teacher.getPatronymic()}"></p>
         </div>
-        <div id="divRight">
-            <div class="divRight" id="divMySubject">
-               <span>Предмет:</span><p id="nameSubject">Название предмета</p>
-                <table>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="date">20.03.2020</td>
-                        <td class="date">20.03.2020</td>
-                        <td class="date">20.03.2020</td>
-                        <td class="date">20.03.2020</td>
-                        <td class="date">20.03.2020</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Student</td>
-                        <td class="attendance">+</td>
-                        <td class="attendance">-</td>
-                        <td class="attendance">+</td>
-                        <td class="attendance">+</td>
-                        <td class="attendance">-</td>
-                    </tr>
-                </table>
-                <form action="" method="post">
-                    <input type="submit" value="Оценки">
-                </form>
-            </div>
-            <div class="date-info">
-                <form action="" method="post">
-                    <p id="date-info"></p>
-                    <p>План преподавателя</p>
-                    <textarea name="text-teacher-plan" id="text-teacher-plan" cols="40" rows="5"></textarea>
-                    <p>Фактическое выполнение</p>
-                    <textarea name="text-actual-implementation" id="text-teacher-plan" cols="40" rows="5"></textarea><br>
-                    <input type="submit" value="Сохранить">
-                </form>
-            </div>
+        <div class="divLeft">
+            <form th:action="@{}" method="post">
+                <input type="submit" value="Занятия сегодня" id="myMain">
+            </form>
+            <form th:action="@{/schedule}" method="post">
+                <input type="submit" value="Мое расписание" id="mySchedule">
+            </form>
+            <form th:action="@{/groups}" method="post">
+                <input type="submit" value="Мои группы" id="myGroups">
+            </form>
+            <form th:action="@{/journal/subjects}" method="post">
+                <input type="submit" value="Мои предметы" id="mySubjects">
+            </form>
+            <form action="/logout">
+                <input type="submit" value="Выйти" id="myExit">
+            </form>
         </div>
     </div>
-    <div id="context-menu-attendance" class="context-menu" style="display: none;">
-        <ul class="ul-attendance">
-            <li><a href="#">+</a></li>
-            <li><a href="#">-</a></li>
-        </ul>
+    <div id="divRight">
+        <div class="divRight" id="divMySubject">
+            <span>Предмет:</span><p id="nameSubject">Название предмета</p>
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="date">20.03.2020</td>
+                    <td class="date">20.03.2020</td>
+                    <td class="date">20.03.2020</td>
+                    <td class="date">20.03.2020</td>
+                    <td class="date">20.03.2020</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Student</td>
+                    <td class="attendance">+</td>
+                    <td class="attendance">-</td>
+                    <td class="attendance">+</td>
+                    <td class="attendance">+</td>
+                    <td class="attendance">-</td>
+                </tr>
+            </table>
+            <form action="" method="post">
+                <input type="submit" value="Оценки">
+            </form>
+        </div>
+        <div class="date-info">
+            <form action="" method="post">
+                <p id="date-info"></p>
+                <p>План преподавателя</p>
+                <textarea name="text-teacher-plan" id="text-teacher-plan" cols="40" rows="5"></textarea>
+                <p>Фактическое выполнение</p>
+                <textarea name="text-actual-implementation" id="text-teacher-plan" cols="40" rows="5"></textarea><br>
+                <input type="submit" value="Сохранить">
+            </form>
+        </div>
     </div>
-    <div id="context-menu-date" class="context-menu" style="display: none;">
-        <ul class="ul-date">
-            <li><input type="date" name="menu-date" id="menu-date"></li>
-            <li><button id="apply">Установить</button></li>
-        </ul>
-    </div>
+</div>
+<div id="context-menu-attendance" class="context-menu" style="display: none;">
+    <ul class="ul-attendance">
+        <li><a href="#">+</a></li>
+        <li><a href="#">-</a></li>
+    </ul>
+</div>
+<div id="context-menu-date" class="context-menu" style="display: none;">
+    <ul class="ul-date">
+        <li><input type="date" name="menu-date" id="menu-date"></li>
+        <li><button id="apply">Установить</button></li>
+    </ul>
+</div>
 </body>
-<script src='../static/js/subject.js'></script>
+<script src='/js/subject.js'></script>
 </html>
