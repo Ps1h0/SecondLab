@@ -3,7 +3,7 @@ package com.journal.app.models;
 import javax.persistence.*;
 import java.sql.Time;
 
-/** Класс, соответствующий таблице "расписание" в базе данных, предназначен для хранения данных
+/** Table "schedule" of database.
  * @author Nikita Platonov
  */
 @Entity

@@ -4,7 +4,7 @@ import com.journal.app.models.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-/** Интерфейс для запросов в таблицу "роли" базы данных
+/** Interface for requests to table "roles"
  * @author Nikita Platonov
  * @author Danil Belonogov
  */

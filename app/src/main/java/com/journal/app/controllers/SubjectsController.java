@@ -12,9 +12,14 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+/** Class controller of subjects page. Defined transition to subject from the list
+ * @author Nikita Platonov
+ * @author Danil Belonogov
+ */
 @Controller
 public class SubjectsController {
 
@@ -30,11 +35,12 @@ public class SubjectsController {
     @Autowired
     MarksRepository marksRepository;
 
-    /** Метод перехода на страницу предметов преподавателя
+    /**Transit to teacher's subjects page
      * @see Model
      * @see Authentication
      * @see Teacher
-     * @param model - для добавления данных на веб-страницу
+     * @see Lesson
+     * @param model - for add data to web-page
      * @return subjects page
      */
     @RequestMapping("/subjects")
@@ -49,6 +55,13 @@ public class SubjectsController {
         return "subjects";
     }
 
+    /**Transit to teacher's subject from the list
+     * @see Model
+     * @see Authentication
+     * @param id - identifier of subject
+     * @param model - for add data to web-page
+     * @return - web-page "subject/{id}"
+     */
     @RequestMapping("/subject/{id}")
     public String getSubjectById(@PathVariable("id") Long id, Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -59,5 +72,11 @@ public class SubjectsController {
         model.addAttribute("teacher",teacher);
         model.addAttribute("marks", marks);
         return "subject";
+    }
+
+    @RequestMapping("/subject/{id}/update")
+    public String updateSubject(@PathVariable("id") Long id, @ModelAttribute("marks") Iterable<Mark> marks){
+        marksRepository.saveAll(marks);
+        return "redirect:/subject/{id}";
     }
 }

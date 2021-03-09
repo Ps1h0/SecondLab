@@ -12,6 +12,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+/**Class controller of groups. Groups page transitions and child pages defined
+ * @author Danil Belonogov
+ */
 @Controller
 public class GroupsController {
 
@@ -30,6 +33,10 @@ public class GroupsController {
     @Autowired
     StudentsRepository studentsRepository;
 
+    /**Transit to groups page
+     * @param model - for add data to web-page
+     * @return web-page "groups"
+     */
     @RequestMapping("/groups")
     public String getMyGroups(Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -42,6 +49,11 @@ public class GroupsController {
         return "groups";
 }
 
+    /**Transit to group from database
+     * @param id - identifier of group
+     * @param model - for add data to web-page
+     * @return web-page "group/{id}"
+     */
     @RequestMapping("/group/{id}")
     public String getGroupById(@PathVariable("id") Long id, Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();

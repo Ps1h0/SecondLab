@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/** Интерфейс для запросов в таблицу "расписание" базы данных
+/** Interface for requests to table "schedule"
  * @author Nikita Platonov
  * @author Danil Belonogov
  */

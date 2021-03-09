@@ -12,6 +12,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+/**Class controller of attendance. Transitions to child pages defined
+ * @author Danil Belonogov
+ */
 @Controller
 public class AttendanceController {
     @Autowired
@@ -21,6 +24,11 @@ public class AttendanceController {
     @Autowired
     ScheduleRepository scheduleRepository;
 
+    /** Transit to attendance of subject
+     * @param id - identifier of subject
+     * @param model - for add data to web-page
+     * @return web-page "attendance/{id}"
+     */
     @RequestMapping("/attendance/{id}")
     public String attendancePage(@PathVariable("id") Long id, Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();

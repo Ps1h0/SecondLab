@@ -1,9 +1,10 @@
 package com.journal.app.models;
 
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/** Класс, соответствующий таблице "оценки" в базе данных, предназначен для хранения данных
+/** Table "marks" of database.
  * @author Nikita Platonov
  */
 @Entity
@@ -27,6 +28,17 @@ public class Mark {
     @Column(name = "lesson_id")
     private Long lessonId;
 
+    @Column(name = "teacher_id")
+    private Long teacherID;
+
+    public Long getTeacherID() {
+        return teacherID;
+    }
+
+    public void setTeacherID(Long teacherID) {
+        this.teacherID = teacherID;
+    }
+
     public Long getMarkId() {
         return markId;
     }
@@ -43,8 +55,9 @@ public class Mark {
         this.mark = mark;
     }
 
-    public Date getDate() {
-        return date;
+    public String getDate() {
+        SimpleDateFormat formatDate = new SimpleDateFormat("dd.MM.yyyy");
+        return formatDate.format(date);
     }
 
     public void setDate(Date date) {

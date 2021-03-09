@@ -17,7 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-/** Класс контроллер журнала преподавателя. Определены переходы на страницу журнала и дочерние страницы
+/**Class controller of teacher's journal application. Journal page transitions and child pages defined
  * @author Nikita Platonov
  */
 @Controller
@@ -29,11 +29,11 @@ public class JournalController {
     @Autowired
     ScheduleRepository scheduleRepository;
 
-    /** Метод перехода на страницу журнала преподавателя после аутентификации пользователя
+    /**Transition to the journal page after user authentication
      * @see Model
      * @see Authentication
      * @see Teacher
-     * @param model - для добавления данных на веб-страницу
+     * @param model - for add data to web-page
      * @return journal page
      */
     @RequestMapping("/journal")

@@ -15,7 +15,7 @@ import javax.transaction.Transactional;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
-/** Класс сервис пользователя приложения
+/**Class service
  * @see UserDetailsService
  * @author Nikita Platonov
  */
@@ -29,19 +29,19 @@ public class UserService implements UserDetailsService {
         this.usersRepository = usersRepository;
     }
 
-    /** Метод поиска пользователя в базе данных
-     * @param login - для поиска
+    /** Method searches user in database
+     * @param login - for search
      * @return usersRepository
      */
     public User findByLogin(String login){
         return usersRepository.findByLogin(login);
     }
 
-    /** Метод загружает пользователя из базе данных по логину
-     * @param login - для поиска
+    /**Method loads user from database by login
+     * @param login - for search
      * @return user
-     * Если пользователь не существует, то
-     * @throws UsernameNotFoundException - в случае отсутствия данных о пользователе в базе
+     * if user doesn't exist
+     * @throws UsernameNotFoundException - if data about user in database absent
      */
     @Override
     @Transactional
@@ -53,8 +53,8 @@ public class UserService implements UserDetailsService {
         return new org.springframework.security.core.userdetails.User(user.getLogin(), user.getPassword(), mapRolesToAuthorities(user.getRoles()));
     }
 
-    /** Метод для присвоения роли пользователю
-     * @param roles - список ролей
+    /** Method to assign role to users
+     * @param roles - list of roles
      * @see GrantedAuthority
      * @see SimpleGrantedAuthority
      */

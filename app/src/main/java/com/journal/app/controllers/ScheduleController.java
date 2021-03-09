@@ -11,6 +11,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+/**Class controller of schedule. Transit to schedule page defined
+ * @author Danil Belonogov
+ */
 @Controller
 public class ScheduleController {
 
@@ -20,6 +23,10 @@ public class ScheduleController {
     @Autowired
     ScheduleRepository scheduleRepository;
 
+    /**Transit to schedule page.
+     * @param model - for add data to web-page
+     * @return web-page "schedule"
+     */
     @RequestMapping("/schedule")
     public String schedulePage(Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -28,8 +35,6 @@ public class ScheduleController {
         Iterable<Schedule> schedules = scheduleRepository.getScheduleByTeacherIdOrderByTime(teacher.getTeacherId());
         model.addAttribute("teacher", teacher);
         model.addAttribute("schedules", schedules);
-
-
         return "schedule";
     }
 }

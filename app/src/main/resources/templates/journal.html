@@ -37,15 +37,19 @@
     <div id="divRight">
         <div class="divRight" id="divMain">
             <p>Сегодняшние занятия</p>
-            <table>
-                <tr th:each="schedule, i : ${schedules}">
-                    <td th:text="${i.index + 1}"></td>
-                    <th:block th:each="lesson : ${lessons}">
-                        <td th:text="${lesson.getName()}">
-                    </th:block>
-                </tr>
+            <table >
+                <th:block th:each="lesson,countless:${lessons}">
+                    <tr th:each="schedule,countsched:${schedules}">
+                        <td th:if="${countless.count == countsched.count}">
+                            <a th:href="@{'/subject/' + ${lesson.getLessonId()}}">
+                                <p th:text="${lesson.getName()}"></p>
+                            </a>
+                            <p th:text="'НАЧАЛО: '+${schedule.getTime()}+' АУДИТОРИЯ: '+ ${schedule.getAuditorium()}"></p>
+                        </td>
+                        <td></td>
+                    </tr>
+                </th:block>
             </table>
-
         </div>
     </div>
 </div>

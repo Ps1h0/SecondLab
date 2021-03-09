@@ -3,7 +3,7 @@ package com.journal.app.models;
 import javax.persistence.*;
 import java.util.Collection;
 
-/** Класс, соответствующий таблице "студенты" в базе данных, предназначен для хранения данных
+/** Table "students" of database.
  * @author Nikita Platonov
  */
 @Entity

@@ -30,7 +30,7 @@
             <form th:action="@{/subjects}" method="post">
                 <input type="submit" value="Мои предметы" id="mySubjects">
             </form>
-            <form th:action="@{/logout}">
+            <form th:action="@{/logout}" method="post">
                 <input type="submit" value="Выйти" id="myExit">
             </form>
         </div>
@@ -40,228 +40,36 @@
             <span>Предмет:</span><p th:text="${lesson.getName()}" id="nameSubject"></p>
             <table class="table-mark">
                 <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <td class="date">1.03.2020</td>
-                    <td class="date">2.03.2020</td>
-                    <td class="date">3.03.2020</td>
-                    <td class="date">4.03.2020</td>
-                    <td class="date">5.03.2020</td>
-                    <td class="date">6.03.2020</td>
-                    <td class="date">7.03.2020</td>
-                    <td class="date">8.03.2020</td>
-                    <td class="date">9.03.2020</td>
-                    <td class="date">10.03.2020</td>
-                    <td class="date">11.03.2020</td>
-                    <td class="date">12.03.2020</td>
-                    <td class="date">13.03.2020</td>
-                    <td class="date">14.03.2020</td>
-                    <td class="date">15.03.2020</td>
-                    <td class="date">16.03.2020</td>
-                    <td class="date">17.03.2020</td>
-                    <td class="date">18.03.2020</td>
-                    <td class="date">19.03.2020</td>
-                    <td class="date">20.03.2020</td>
-                    <td class="date">21.03.2020</td>
-                    <td class="date">22.03.2020</td>
-                    <td class="date">23.03.2020</td>
-                    <td class="date">24.03.2020</td>
-                    <td class="date">25.03.2020</td>
-                    <td class="date">26.03.2020</td>
-                    <td class="date">27.03.2020</td>
-                    <td class="date">28.03.2020</td>
-                    <td class="date">29.03.2020</td>
-                    <td class="date">30.03.2020</td>
+                    <th>№</th>
+                    <th>Студент</th>
+                    <th:block th:each="mark : ${marks}">
+                        <th th:text="${mark.getDate()}" class="date"></th>
+                    </th:block>
+
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Student</td>
-                    <td class="mark">5</td>
-                    <td class="mark">4</td>
-                    <td class="mark">3</td>
-                    <td class="mark">1</td>
-                    <td class="mark">2</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Student</td>
-                    <td class="mark">3</td>
-                    <td class="mark">4</td>
-                    <td class="mark">3</td>
-                    <td class="mark">4</td>
-                    <td class="mark">5</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Student</td>
-                    <td class="mark">5</td>
-                    <td class="mark">5</td>
-                    <td class="mark">5</td>
-                    <td class="mark">5</td>
-                    <td class="mark">5</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Student</td>
-                    <td class="mark">5</td>
-                    <td class="mark">4</td>
-                    <td class="mark">3</td>
-                    <td class="mark">1</td>
-                    <td class="mark">2</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Student</td>
-                    <td class="mark">3</td>
-                    <td class="mark">4</td>
-                    <td class="mark">3</td>
-                    <td class="mark">4</td>
-                    <td class="mark">5</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Student</td>
-                    <td class="mark">5</td>
-                    <td class="mark">5</td>
-                    <td class="mark">5</td>
-                    <td class="mark">5</td>
-                    <td class="mark">5</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Student</td>
-                    <td class="mark">5</td>
-                    <td class="mark">4</td>
-                    <td class="mark">3</td>
-                    <td class="mark">1</td>
-                    <td class="mark">2</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Student</td>
-                    <td class="mark">3</td>
-                    <td class="mark">4</td>
-                    <td class="mark">3</td>
-                    <td class="mark">4</td>
-                    <td class="mark">5</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Student</td>
-                    <td class="mark">5</td>
-                    <td class="mark">5</td>
-                    <td class="mark">5</td>
-                    <td class="mark">5</td>
-                    <td class="mark">5</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Student</td>
-                    <td class="mark">5</td>
-                    <td class="mark">4</td>
-                    <td class="mark">3</td>
-                    <td class="mark">1</td>
-                    <td class="mark">2</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Student</td>
-                    <td class="mark">3</td>
-                    <td class="mark">4</td>
-                    <td class="mark">3</td>
-                    <td class="mark">4</td>
-                    <td class="mark">5</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Student</td>
-                    <td class="mark">5</td>
-                    <td class="mark">5</td>
-                    <td class="mark">5</td>
-                    <td class="mark">5</td>
-                    <td class="mark">5</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Student</td>
-                    <td class="mark">5</td>
-                    <td class="mark">4</td>
-                    <td class="mark">3</td>
-                    <td class="mark">1</td>
-                    <td class="mark">2</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Student</td>
-                    <td class="mark">3</td>
-                    <td class="mark">4</td>
-                    <td class="mark">3</td>
-                    <td class="mark">4</td>
-                    <td class="mark">5</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Student</td>
-                    <td class="mark">5</td>
-                    <td class="mark">5</td>
-                    <td class="mark">5</td>
-                    <td class="mark">5</td>
-                    <td class="mark">5</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Student</td>
-                    <td class="mark">5</td>
-                    <td class="mark">4</td>
-                    <td class="mark">3</td>
-                    <td class="mark">1</td>
-                    <td class="mark">2</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Student</td>
-                    <td class="mark">3</td>
-                    <td class="mark">4</td>
-                    <td class="mark">3</td>
-                    <td class="mark">4</td>
-                    <td class="mark">5</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Student</td>
-                    <td class="mark">5</td>
-                    <td class="mark">5</td>
-                    <td class="mark">5</td>
-                    <td class="mark">5</td>
-                    <td class="mark">5</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Student</td>
-                    <td class="mark">5</td>
-                    <td class="mark">4</td>
-                    <td class="mark">3</td>
-                    <td class="mark">1</td>
-                    <td class="mark">2</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Student</td>
-                    <td class="mark">3</td>
-                    <td class="mark">4</td>
-                    <td class="mark">3</td>
-                    <td class="mark">4</td>
-                    <td class="mark">5</td>
-                </tr>
-                <tr>
-                    <td>31</td>
-                    <td>Student</td>
-                    <td class="mark">5</td>
-                    <td class="mark">5</td>
-                    <td class="mark">5</td>
-                    <td class="mark">5</td>
-                    <td class="mark">5</td>
-                </tr>
+                <th:block th:each="mark, index : ${marks}">
+<!--                    <tr th:if="${}">-->
+                        <td th:text="${index.index + 1}"></td>
+                        <td th:text="${mark.getStudentId()}"></td>
+                        <td class="mark" th:text="${mark.getMark()}"></td>
+<!--                        <td>1</td>-->
+<!--                        <td>Student</td>-->
+<!--                        <td class="mark">5</td>-->
+<!--                        <td class="mark">4</td>-->
+<!--                        <td class="mark">3</td>-->
+<!--                        <td class="mark">1</td>-->
+<!--                        <td class="mark">2</td>-->
+                    </tr>
+<!--                    <tr>-->
+<!--                        <td>1</td>-->
+<!--                        <td>Student</td>-->
+<!--                        <td class="mark">3</td>-->
+<!--                        <td class="mark">4</td>-->
+<!--                        <td class="mark">3</td>-->
+<!--                        <td class="mark">4</td>-->
+<!--                        <td class="mark">5</td>-->
+<!--                    </tr>-->
+                </th:block>
             </table>
             <form th:action="@{'/attendance/' + ${lesson.getLessonId()}}" method="post">
                 <input type="submit" value="Посещаемость">
@@ -276,7 +84,7 @@
                 <p>План преподавателя</p>
                 <ul id="ul-task">
                 </ul>
-                <input type="submit" value="Сохранить">
+                <input th:action="@{/subject/{id}/update}" type="submit" value="Сохранить">
             </form>
             <p>Добавить задачу</p>
             <textarea name="text-task" id="text-task" cols="70" rows="5"></textarea><br>
@@ -290,7 +98,6 @@
         <li><a href="#">4</a></li>
         <li><a href="#">3</a></li>
         <li><a href="#">2</a></li>
-        <li><a href="#">1</a></li>
     </ul>
 </div>
 <div id="context-menu-date" class="context-menu" style="display: none;">
