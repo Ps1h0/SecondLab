@@ -152,8 +152,8 @@ input[type=submit]:hover {
 }
 
 .scroll-table-body {
-	height: 350px;
-	overflow-x: scroll;
+	height: fit-content;
+	overflow-y: auto;
 	margin-top: 0px;
 	margin-bottom: 20px;
 	border-bottom: 1px solid #eee;

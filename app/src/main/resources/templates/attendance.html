@@ -7,8 +7,8 @@
     <title>Посещаемость</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-    <link rel='stylesheet' type='text/css' media='screen' href='/css/journal.css'>
-    <link rel='stylesheet' type='text/css' media='screen' href='/css/subject.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../static/css/journal.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../static/css/subject.css'>
     <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 </head>
 <body>
@@ -61,16 +61,21 @@
             <form action="" method="post">
                 <input type="submit" value="Оценки">
             </form>
+            <form action="" method="post">
+                <input type="submit" value="Сохранить">
+            </form>
         </div>
         <div class="date-info">
             <form action="" method="post">
                 <p id="date-info"></p>
                 <p>План преподавателя</p>
-                <textarea name="text-teacher-plan" id="text-teacher-plan" cols="40" rows="5"></textarea>
-                <p>Фактическое выполнение</p>
-                <textarea name="text-actual-implementation" id="text-teacher-plan" cols="40" rows="5"></textarea><br>
+                <ul id="ul-task">
+                </ul>
                 <input type="submit" value="Сохранить">
             </form>
+            <p>Добавить задачу</p>
+            <textarea name="text-task" id="text-task" cols="70" rows="5"></textarea><br>
+            <button id="btn-add-task">Добавить</button>
         </div>
     </div>
 </div>
@@ -87,5 +92,5 @@
     </ul>
 </div>
 </body>
-<script src='/js/subject.js'></script>
+<script src='../static/js/subject.js'></script>
 </html>
