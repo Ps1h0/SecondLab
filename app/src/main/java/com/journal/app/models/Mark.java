@@ -24,6 +24,16 @@ public class Mark {
     @Column(name = "date")
     private Date date;
 
+    @Column(name = "teacher_id")
+    private Long teacherId;
+
+    public Long getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(Long teacherId) {
+        this.teacherId = teacherId;
+    }
 
     @Column(name = "lesson_id")
     private Long lessonId;

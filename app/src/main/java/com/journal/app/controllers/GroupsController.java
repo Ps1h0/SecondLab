@@ -51,7 +51,6 @@ public class GroupsController {
         model.addAttribute("students",students);
         Group group = groupsRepository.getOne(id);
         model.addAttribute("group",group);
-
         return "group";
     }
 

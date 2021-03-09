@@ -2,6 +2,7 @@ package com.journal.app.models;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
 
 /** Класс, соответствующий таблице "посещаемость" в базе данных, предназначен для хранения данных
@@ -16,8 +17,8 @@ public class Attendance {
     @Column(name = "attendance_id")
     private Long attendanceId;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    private Collection<Student> studentId;
+    @Column(name = "student_id")
+    private Long studentId;
 
     @Column(name = "date")
     private Date date;
@@ -36,11 +37,11 @@ public class Attendance {
         this.attendanceId = attendanceId;
     }
 
-    public Collection<Student> getStudentId() {
+    public Long getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(Collection<Student> studentId) {
+    public void setStudentId(Long studentId) {
         this.studentId = studentId;
     }
 

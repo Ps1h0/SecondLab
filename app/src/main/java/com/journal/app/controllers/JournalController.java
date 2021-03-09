@@ -1,6 +1,7 @@
 package com.journal.app.controllers;
 
 import com.journal.app.models.Lesson;
+import com.journal.app.models.Logger;
 import com.journal.app.models.Schedule;
 import com.journal.app.models.Teacher;
 import com.journal.app.repositories.LessonsRepository;
@@ -13,6 +14,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -39,7 +42,7 @@ public class JournalController {
      * @return journal page
      */
     @RequestMapping("/journal")
-    public String journalPage(Model model){
+    public String journalPage(Model model) throws IOException {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName();
         Teacher teacher = teachersRepository.findTeacherByLogin(name);
@@ -48,7 +51,7 @@ public class JournalController {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEEE");
 
         String day = simpleDateFormat.format(date);
-        String dayy ="понедельник";
+
 
         List<Schedule> schedules = scheduleRepository.getSchedulesByTeacherIdAndDay(day,teacher.getTeacherId());
         int n = schedules.size();
@@ -59,7 +62,8 @@ public class JournalController {
         }
         model.addAttribute("lessons",lessons);
         model.addAttribute("schedules",schedules);
-
+        Logger logger = new Logger();
+        logger.createLog(name+" зашел в ститему");
         return "journal";
     }
 

@@ -39,12 +39,12 @@
                 <p>Сегодняшние занятия</p>
                 <table >
                     <th:block th:each="lesson,countless:${lessons}">
-                    <tr th:each="schedule,countsched:${schedules}">
+                    <tr th:each="schedule,countsched:${schedules}" >
                         <td th:if="${countless.count == countsched.count}">
                             <a th:href="@{'/subject/' + ${lesson.getLessonId()}}">
                             <p th:text="${lesson.getName()}"></p>
                             </a>
-                            <p th:text="'НАЧАЛО: '+${schedule.getTime()}+' АУДИТОРИЯ: '+ ${schedule.getAuditorium()}"></p>
+                            <p th:text="'НАЧАЛО: '+${schedule.getTime()}+' АУДИТОРИЯ: '+ ${schedule.getAuditorium()}" ></p>
                         </td>
                         <td></td>
                     </tr>
