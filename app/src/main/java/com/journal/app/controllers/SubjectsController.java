@@ -1,20 +1,16 @@
 package com.journal.app.controllers;
 
-import com.journal.app.models.Lesson;
-import com.journal.app.models.Mark;
-import com.journal.app.models.Teacher;
-import com.journal.app.repositories.LessonsRepository;
-import com.journal.app.repositories.MarksRepository;
-import com.journal.app.repositories.TeachersRepository;
-import com.journal.app.repositories.UsersRepository;
+import com.journal.app.models.*;
+import com.journal.app.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
+import java.util.List;
 
 /** Class controller of subjects page. Defined transition to subject from the list
  * @author Nikita Platonov
@@ -34,6 +30,9 @@ public class SubjectsController {
 
     @Autowired
     MarksRepository marksRepository;
+
+    @Autowired
+    LessonPlanRepository lessonPlanRepository;
 
     /**Transit to teacher's subjects page
      * @see Model
@@ -67,16 +66,28 @@ public class SubjectsController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName();
         Teacher teacher = teachersRepository.findTeacherByLogin(name);
-        Iterable<Mark> marks = marksRepository.getMarksByLessonId(id);
+        List<Mark> marks = marksRepository.getDistinctByLessonIdAndTeacherID(id, teacher.getTeacherId());
+        List<Date> dates = marksRepository.getDatesByLessonIdAndTeacherID(id, teacher.getTeacherId());
         model.addAttribute("lesson", lessonsRepository.getOne(id));
         model.addAttribute("teacher",teacher);
         model.addAttribute("marks", marks);
+        model.addAttribute("dates", dates);
         return "subject";
     }
 
-    @RequestMapping("/subject/{id}/update")
-    public String updateSubject(@PathVariable("id") Long id, @ModelAttribute("marks") Iterable<Mark> marks){
-        marksRepository.saveAll(marks);
-        return "redirect:/subject/{id}";
-    }
+//    @PostMapping("/subject/update")
+//    public String updateSubject(@ModelAttribute("marks") Iterable<Mark> marks){
+//        marksRepository.saveAll(marks);
+//        marksRepository.flush();
+//        return "redirect:subject";
+//    }
+
+//    @GetMapping("/subject/update_plan")
+//    public String updatePlan(Model model){
+//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//        String name = auth.getName();
+//        Teacher teacher = teachersRepository.findTeacherByLogin(name);
+//        List<LessonPlan> lessonPlans = lessonPlanRepository.
+//        return "redirect:subject";
+//    }
 }

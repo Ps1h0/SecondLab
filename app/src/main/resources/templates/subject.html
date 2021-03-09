@@ -39,56 +39,53 @@
         <div class="divRight scroll-table-body" id="divMySubject">
             <span>Предмет:</span><p th:text="${lesson.getName()}" id="nameSubject"></p>
             <table class="table-mark">
+
                 <tr>
                     <th>№</th>
                     <th>Студент</th>
-                    <th:block th:each="mark : ${marks}">
-                        <th th:text="${mark.getDate()}" class="date"></th>
+                    <th:block th:each="date : ${dates}">
+                        <td>
+                            <a th:href="@{'/plan/' + ${lesson.getLessonId()}+ '/'+ ${date}}">
+                                <p th:text="${date}"></p>
+                            </a>
+                        </td>
                     </th:block>
-
                 </tr>
-                <th:block th:each="mark, index : ${marks}">
-<!--                    <tr th:if="${}">-->
+
+                <tr th:each="mark, index : ${marks}">
                         <td th:text="${index.index + 1}"></td>
                         <td th:text="${mark.getStudentId()}"></td>
-                        <td class="mark" th:text="${mark.getMark()}"></td>
-<!--                        <td>1</td>-->
-<!--                        <td>Student</td>-->
-<!--                        <td class="mark">5</td>-->
-<!--                        <td class="mark">4</td>-->
-<!--                        <td class="mark">3</td>-->
-<!--                        <td class="mark">1</td>-->
-<!--                        <td class="mark">2</td>-->
-                    </tr>
-<!--                    <tr>-->
-<!--                        <td>1</td>-->
-<!--                        <td>Student</td>-->
-<!--                        <td class="mark">3</td>-->
-<!--                        <td class="mark">4</td>-->
-<!--                        <td class="mark">3</td>-->
-<!--                        <td class="mark">4</td>-->
-<!--                        <td class="mark">5</td>-->
-<!--                    </tr>-->
-                </th:block>
+                        <th:block th:each="mark1, index1 : ${marks}">
+                            <th:block th:if="${index1.count <= marks.size()}">
+                                <th:block th:switch="${mark.getDate() == mark1.getDate()} ? ${true} : ${false}">
+                                    <div th:case="${true}">
+                                        <td class="mark" th:text="${mark.getMark()}"></td>
+                                    </div>
+                                    <td th:case="${false}">-</td>
+                                </th:block>
+                            </th:block>
+                        </th:block>
+                </tr>
+
             </table>
             <form th:action="@{'/attendance/' + ${lesson.getLessonId()}}" method="post">
                 <input type="submit" value="Посещаемость">
             </form>
-            <form action="" method="post">
+            <form th:action="@{/subject/update}" method="post">
                 <input type="submit" value="Сохранить">
             </form>
         </div>
         <div class="date-info">
-            <form action="" method="post">
+            <form th:action="@{/journal}" method="post">
                 <p id="date-info"></p>
                 <p>План преподавателя</p>
                 <ul id="ul-task">
                 </ul>
-                <input th:action="@{/subject/{id}/update}" type="submit" value="Сохранить">
+                <input th:action="@{/subject/{id}/update}" method="post" type="submit" value="Сохранить">
             </form>
-            <p>Добавить задачу</p>
-            <textarea name="text-task" id="text-task" cols="70" rows="5"></textarea><br>
-            <button id="btn-add-task">Добавить</button>
+<!--            <form th:action="@{'/plan/' + ${lesson.getLessonId()} + '/' }" method="post">-->
+<!--                <input type="submit" value="Добавить задачу">-->
+<!--            </form>-->
         </div>
     </div>
 </div>
@@ -98,12 +95,6 @@
         <li><a href="#">4</a></li>
         <li><a href="#">3</a></li>
         <li><a href="#">2</a></li>
-    </ul>
-</div>
-<div id="context-menu-date" class="context-menu" style="display: none;">
-    <ul class="ul-date">
-        <li><input type="date" name="menu-date" id="menu-date"></li>
-        <li><button id="apply">Установить</button></li>
     </ul>
 </div>
 </body>

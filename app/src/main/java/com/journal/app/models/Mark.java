@@ -31,12 +31,16 @@ public class Mark {
     @Column(name = "teacher_id")
     private Long teacherID;
 
-    public Long getTeacherID() {
-        return teacherID;
+    public Mark(Long markId, Long studentId, Integer mark, Date date, Long lessonId, Long teacherID) {
+        this.markId = markId;
+        this.studentId = studentId;
+        this.mark = mark;
+        this.date = date;
+        this.lessonId = lessonId;
+        this.teacherID = teacherID;
     }
 
-    public void setTeacherID(Long teacherID) {
-        this.teacherID = teacherID;
+    public Mark() {
     }
 
     public Long getMarkId() {
@@ -45,6 +49,14 @@ public class Mark {
 
     public void setMarkId(Long markId) {
         this.markId = markId;
+    }
+
+    public Long getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(Long studentId) {
+        this.studentId = studentId;
     }
 
     public Integer getMark() {
@@ -64,19 +76,19 @@ public class Mark {
         this.date = date;
     }
 
-    public Long getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(Long studentId) {
-        this.studentId = studentId;
-    }
-
     public Long getLessonId() {
         return lessonId;
     }
 
     public void setLessonId(Long lessonId) {
         this.lessonId = lessonId;
+    }
+
+    public Long getTeacherID() {
+        return teacherID;
+    }
+
+    public void setTeacherID(Long teacherID) {
+        this.teacherID = teacherID;
     }
 }
