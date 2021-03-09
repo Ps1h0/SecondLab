@@ -5,6 +5,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/** Table "lesson plan" of database.
+ * @author Nikita Platonov
+ */
 @Entity
 @Table(name = "lesson_plan")
 public class LessonPlan {

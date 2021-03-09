@@ -20,6 +20,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**Class controller of lesson plans. Transitions to child pages defined
+ * @author Nikita Platonov
+ * @author Danil Belonogov
+ */
 @Controller
 public class LessonPlanController {
 
@@ -33,6 +37,13 @@ public class LessonPlanController {
     LessonPlanRepository lessonPlanRepository;
 
 
+    /**Returns web-page for add plans
+     * @param id - identifier of subject
+     * @param date - date
+     * @param model - for add data to web page
+     * @return web-page "plan-add"
+     * @throws ParseException for {@link SimpleDateFormat}
+     */
     @RequestMapping("/plan/{id}/{date}")
     public String addLessonPlan(@PathVariable("id") Long id, @PathVariable("date") String date, Model model) throws ParseException {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -48,6 +59,10 @@ public class LessonPlanController {
         return "plan-add";
     }
 
+    /**Method for adding new plans
+     * @param lessonPlan - plan of lesson
+     * @return web-page "plan-add"
+     */
     @PostMapping("/plan/update")
     public String updatePlan(@ModelAttribute("planupdate") LessonPlan lessonPlan){
         lessonPlanRepository.save(lessonPlan);
