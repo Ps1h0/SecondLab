@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Урок</title>
+    <title>Добавить задачу</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
     <link rel='stylesheet' type='text/css' media='screen' href='../static/css/subject.css'>
@@ -38,34 +38,8 @@
     <div id="divRight">
         <div class="divRight scroll-table-body" id="divMySubject">
            <span>Предмет:</span><p id="nameSubject">Название предмета</p>
-            <table class="table-mark">
-                <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <td class="date">1.03.2020</td>
-                    <td class="date">2.03.2020</td>
-                    <td class="date">3.03.2020</td>
-                    <td class="date">4.03.2020</td>
-                    <td class="date">5.03.2020</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Student</td>
-                    <td class="mark">5</td>
-                    <td class="mark">4</td>
-                    <td class="mark">3</td>
-                    <td class="mark">1</td>
-                    <td class="mark">2</td>
-                </tr>
-            </table>
-            <form action="" method="post">
-                <input type="submit" value="Посещаемость">
-            </form>
-            <form action="" method="post">
-                <input type="submit" value="Сохранить">
-            </form>
-        </div>
-        <div class="date-info">
+            
+        <div class="date-info" style="display: block">
             <form action="" method="post">
                 <p id="date-info"></p>
                 <p>План преподавателя</p>
@@ -73,9 +47,9 @@
                 </ul>
                 <input type="submit" value="Сохранить">
             </form>
-            <form action="" method="post">
-                <input type="submit" value="Добавить задачу">
-            </form>
+            <p>Добавить задачу</p>
+            <textarea name="text-task" id="text-task" cols="70" rows="5"></textarea><br>
+            <button id="btn-add-task">Добавить</button>
         </div>
     </div>
 </div>
