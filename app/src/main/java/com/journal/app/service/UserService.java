@@ -57,6 +57,7 @@ public class UserService implements UserDetailsService {
      * @param roles - list of roles
      * @see GrantedAuthority
      * @see SimpleGrantedAuthority
+     * @return collection of roles
      */
     private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){
         return roles.stream().map(r -> new SimpleGrantedAuthority(r.getName())).collect(Collectors.toList());
