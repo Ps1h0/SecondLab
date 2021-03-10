@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-/** Интерфейс для запросов в таблицу "учителя" базы данных
+/** Interface for requests to table "teachers"
  * @author Nikita Platonov
  * @author Danil Belonogov
  */

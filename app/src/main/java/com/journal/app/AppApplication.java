@@ -3,7 +3,7 @@ package com.journal.app;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-/** Точка выхода приложения
+/** Main class of application
  * @author Danil Belonogov
  */
 

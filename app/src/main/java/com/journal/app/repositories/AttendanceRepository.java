@@ -4,7 +4,7 @@ import com.journal.app.models.Attendance;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-/** Интерфейс для запросов в таблицу "посещаемость" базы данных
+/**Interface for requests to table "attendance"
  * @author Nikita Platonov
  * @author Danil Belonogov
  */

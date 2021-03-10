@@ -2,7 +2,7 @@ package com.journal.app.models;
 
 import javax.persistence.*;
 
-/** Класс, соответствующий таблице "уроки" в базе данных, предназначен для хранения данных
+/** Table "lessons" of database.
  * @author Nikita Platonov
  */
 @Entity

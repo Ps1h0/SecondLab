@@ -3,7 +3,7 @@ package com.journal.app.models;
 import javax.persistence.*;
 import java.sql.Date;
 
-/** Класс, соответствующий таблице "посещаемость" в базе данных, предназначен для хранения данных
+/**Table "attendance" of database.
  * @author Nikita Platonov
  */
 @Entity

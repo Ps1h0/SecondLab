@@ -3,7 +3,7 @@ package com.journal.app.models;
 import javax.persistence.*;
 import java.util.List;
 
-/** Класс, соответствующий таблице "роли" в базе данных, предназначен для хранения данных
+/** Table "roles" of database.
  * @author Nikita Platonov
  */
 @Entity

@@ -12,7 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-/** Класс конфигурация безопасности приложения
+/**Class configuration security of application
  * @see WebSecurityConfigurerAdapter
  * @author Nikita Platonov
  */
@@ -27,10 +27,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         this.userService = userService;
     }
 
-    /** Метод, определяющий, по каким адресам могут переходить авторизованные и неавторизованные пользователи,
-     * переадресации страницы
-     * @param http - параметр для настройки
-     * @throws Exception - для метода authorizeRequests()
+    /**Defines authorized and unauthorized users rights, redirecting pages
+     * @param http - parameter to customize
+     * @throws Exception - for method authorizeRequests()
      * @see HttpSecurity
      */
     @Override
@@ -45,7 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout().logoutSuccessUrl("/").permitAll();
     }
 
-    /** Метод, возвращающий декодировщик пароля пользователя
+    /** Returns decoder of user's password
      * @see BCryptPasswordEncoder
      * @return BCryptPasswordEncoder
      */
@@ -54,8 +53,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    /** Метод, позволяющий проводить аутентификацию пользователей из базы данных с помощью декодировщика пароля,
-     * установленного методом {@link #passwordEncoder()} и параметров пользователя, установленных методом
+    /**Returns authenticationProvider for authentication users from database with decoder of password {@link #passwordEncoder()}
      * {@link #setUserService(UserService)}
      * @see DaoAuthenticationProvider
      * @return authenticationProvider

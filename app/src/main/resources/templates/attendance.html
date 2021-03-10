@@ -18,7 +18,7 @@
             <p th:text="${teacher.getSecondName()}+' '+${teacher.getName()}+' '+${teacher.getPatronymic()}"></p>
         </div>
         <div class="divLeft">
-            <form th:action="@{}" method="post">
+            <form th:action="@{/journal}" method="post">
                 <input type="submit" value="Занятия сегодня" id="myMain">
             </form>
             <form th:action="@{/schedule}" method="post">
@@ -27,17 +27,17 @@
             <form th:action="@{/groups}" method="post">
                 <input type="submit" value="Мои группы" id="myGroups">
             </form>
-            <form th:action="@{/journal/subjects}" method="post">
+            <form th:action="@{/subjects}" method="post">
                 <input type="submit" value="Мои предметы" id="mySubjects">
             </form>
-            <form action="/logout">
+            <form th:action="@{/logout}" method="post">
                 <input type="submit" value="Выйти" id="myExit">
             </form>
         </div>
     </div>
     <div id="divRight">
         <div class="divRight" id="divMySubject">
-            <span>Предмет:</span><p id="nameSubject">Название предмета</p>
+            <span>Предмет:</span><p th:text="${lesson.getName()}" id="nameSubject"></p>
             <table>
                 <tr>
                     <td></td>
@@ -58,19 +58,23 @@
                     <td class="attendance">-</td>
                 </tr>
             </table>
-            <form action="" method="post">
+            <form th:action="@{'/subject/' + ${lesson.getLessonId()}}" method="post">
                 <input type="submit" value="Оценки">
+            </form>
+            <form action="" method="post">
+                <input type="submit" value="Сохранить">
             </form>
         </div>
         <div class="date-info">
             <form action="" method="post">
                 <p id="date-info"></p>
                 <p>План преподавателя</p>
-                <textarea name="text-teacher-plan" id="text-teacher-plan" cols="40" rows="5"></textarea>
-                <p>Фактическое выполнение</p>
-                <textarea name="text-actual-implementation" id="text-teacher-plan" cols="40" rows="5"></textarea><br>
+                <ul id="ul-task"></ul>
                 <input type="submit" value="Сохранить">
             </form>
+            <p>Добавить задачу</p>
+            <textarea name="text-task" id="text-task" cols="70" rows="5"></textarea><br>
+            <button id="btn-add-task">Добавить</button>
         </div>
     </div>
 </div>

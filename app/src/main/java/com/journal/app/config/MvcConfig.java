@@ -4,15 +4,15 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-/** Класс конфигурация приложения
+/** Class configuration of application
  * @see WebMvcConfigurer
  * @author Nikita Platonov
  */
 @Configuration
 public class MvcConfig implements WebMvcConfigurer {
 
-    /** Метод, определяющий переход к страницам по адресу
-     * @param registry - для настройки адресации
+    /** Defines the transition to pages by address
+     * @param registry - to configure addressing
      * @see ViewControllerRegistry
      */
     public void addViewControllers(ViewControllerRegistry registry){

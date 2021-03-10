@@ -14,16 +14,16 @@
                 <p th:text="${teacher.getSecondName()}+' '+${teacher.getName()}+' '+${teacher.getPatronymic()}"></p>
             </div>
             <div class="divLeft">
-                <form action="@{}" method="post">
+                <form th:action="@{/journal}" method="post">
                     <input type="submit" value="Занятия сегодня" id="myMain">
                 </form>
-                <form action="@{/schedule}" method="post">
+                <form th:action="@{/schedule}" method="post">
                     <input type="submit" value="Мое расписание" id="mySchedule">
                 </form>
-                <form th:action="@{/journal/groups}" method="post">
+                <form th:action="@{/groups}" method="post">
                     <input type="submit" value="Мои группы" id="myGroups">
                 </form>
-                <form th:action="@{/journal/subjects}" method="post">
+                <form th:action="@{/subjects}" method="post">
                     <input type="submit" value="Мои предметы" id="mySubjects">
                 </form>
                 <form th:action="@{/logout}" method="post">
@@ -37,25 +37,24 @@
                     <td>
                         <table class="table">
                             <thead>
-                                <tr class="trHead">
-                                    <td colspan="4">Понедельник</td>
-                                </tr>
-                                <tr>
-                                    <td>№</td>
-                                    <td>Название</td>
-                                    <td>Аудитория</td>
-                                    <td>Время</td>
-                                </tr>
+                            <tr class="trHead">
+                                <td colspan="3">Понедельник</td>
+                            </tr>
+                            <tr>
+                                <td>Название</td>
+                                <td>Аудитория</td>
+                                <td>Время</td>
+                            </tr>
                             </thead>
                             <tbody>
-                                <!-- строка - один предмет -->
-                                <tr>
-                                    <!-- понедельник -->
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                </tr>
+                            <!-- строка - один предмет -->
+                            <tr th:each="schedule, index : ${schedules}"  th:if="${schedule.getDay() == 'понедельник'}">
+                                <!-- понедельник -->
+                                <td th:text="${schedule.getLessonId()}"></td>
+                                <td th:text="${schedule.getAuditorium()}"></td>
+                                <td th:text="${schedule.getTime()}"></td>
+                            </tr>
+
                             </tbody>
                         </table>
                     </td>
@@ -63,25 +62,23 @@
                     <td>
                         <table class="table">
                             <thead>
-                                <tr class="trHead">
-                                    <td colspan="4">Вторник</td>
-                                </tr>
-                                <tr>
-                                    <td>№</td>
-                                    <td>Название</td>
-                                    <td>Аудитория</td>
-                                    <td>Время</td>
-                                </tr>
+                            <tr class="trHead">
+                                <td colspan="3">Вторник</td>
+                            </tr>
+                            <tr>
+                                <td>Название</td>
+                                <td>Аудитория</td>
+                                <td>Время</td>
+                            </tr>
                             </thead>
                             <tbody>
-                                <!-- строка - один предмет -->
-                                <tr>
-                                    <!-- вторник -->
-                                    <td>2</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                </tr>
+                            <!-- строка - один предмет -->
+                            <tr th:each="schedule, index : ${schedules}"  th:if="${schedule.getDay() == 'вторник'}">
+                                <!-- вторник -->
+                                <td th:text="${schedule.getLessonId()}"></td>
+                                <td th:text="${schedule.getAuditorium()}"></td>
+                                <td th:text="${schedule.getTime()}"></td>
+                            </tr>
                             </tbody>
                         </table>
                     </td>
@@ -89,25 +86,24 @@
                     <td>
                         <table class="table">
                             <thead>
-                                <tr class="trHead">
-                                    <td colspan="4">Среда</td>
-                                </tr>
-                                <tr>
-                                    <td>№</td>
-                                    <td>Название</td>
-                                    <td>Аудитория</td>
-                                    <td>Время</td>
-                                </tr>
+                            <tr class="trHead">
+                                <td colspan="3">Среда</td>
+                            </tr>
+                            <tr>
+                                <td>Название</td>
+                                <td>Аудитория</td>
+                                <td>Время</td>
+                            </tr>
                             </thead>
                             <tbody>
-                                <!-- строка - один предмет -->
-                                <tr>
-                                    <!-- среда -->
-                                    <td>3</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                </tr>
+                            <!-- строка - один предмет -->
+                            <tr th:each="schedule, index : ${schedules}"  th:if="${schedule.getDay() == 'среда'}">
+                                <!-- среда -->
+                                <td th:text="${schedule.getLessonId()}"></td>
+                                <td th:text="${schedule.getAuditorium()}"></td>
+                                <td th:text="${schedule.getTime()}"></td>
+                            </tr>
+
                             </tbody>
                         </table>
                     </td>
@@ -116,25 +112,23 @@
                     <td>
                         <table class="table">
                             <thead>
-                                <tr class="trHead">
-                                    <td colspan="4">Четверг</td>
-                                </tr>
-                                <tr>
-                                    <td>№</td>
-                                    <td>Название</td>
-                                    <td>Аудитория</td>
-                                    <td>Время</td>
-                                </tr>
+                            <tr class="trHead">
+                                <td colspan="3">Четверг</td>
+                            </tr>
+                            <tr>
+                                <td>Название</td>
+                                <td>Аудитория</td>
+                                <td>Время</td>
+                            </tr>
                             </thead>
                             <tbody>
-                                <!-- строка - один предмет -->
-                                <tr>
-                                    <!-- Четверг -->
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                </tr>
+                            <!-- строка - один предмет -->
+                            <tr th:each="schedule, index : ${schedules}"  th:if="${schedule.getDay() == 'четверг'}">
+                                <!-- Четверг -->
+                                <td th:text="${schedule.getLessonId()}"></td>
+                                <td th:text="${schedule.getAuditorium()}"></td>
+                                <td th:text="${schedule.getTime()}"></td>
+                            </tr>
                             </tbody>
                         </table>
                     </td>
@@ -142,25 +136,23 @@
                     <td>
                         <table class="table">
                             <thead>
-                                <tr class="trHead">
-                                    <td colspan="4">Пятница</td>
-                                </tr>
-                                <tr>
-                                    <td>№</td>
-                                    <td>Название</td>
-                                    <td>Аудитория</td>
-                                    <td>Время</td>
-                                </tr>
+                            <tr class="trHead">
+                                <td colspan="3">Пятница</td>
+                            </tr>
+                            <tr>
+                                <td>Название</td>
+                                <td>Аудитория</td>
+                                <td>Время</td>
+                            </tr>
                             </thead>
                             <tbody>
-                                <!-- строка - один предмет -->
-                                <tr>
-                                    <!-- Пятница -->
-                                    <td>2</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                </tr>
+                            <!-- строка - один предмет -->
+                            <tr th:each="schedule, index : ${schedules}"  th:if="${schedule.getDay() == 'пятница'}">
+                                <!-- Пятница -->
+                                <td th:text="${schedule.getLessonId()}"></td>
+                                <td th:text="${schedule.getAuditorium()}"></td>
+                                <td th:text="${schedule.getTime()}"></td>
+                            </tr>
                             </tbody>
                         </table>
                     </td>
@@ -168,25 +160,23 @@
                     <td>
                         <table class="table">
                             <thead>
-                                <tr class="trHead">
-                                    <td colspan="4">Суббота</td>
-                                </tr>
-                                <tr>
-                                    <td>№</td>
-                                    <td>Название</td>
-                                    <td>Аудитория</td>
-                                    <td>Время</td>
-                                </tr>
+                            <tr class="trHead">
+                                <td colspan="3">Суббота</td>
+                            </tr>
+                            <tr>
+                                <td>Название</td>
+                                <td>Аудитория</td>
+                                <td>Время</td>
+                            </tr>
                             </thead>
                             <tbody>
-                                <!-- строка - один предмет -->
-                                <tr>
-                                    <!-- Суббота -->
-                                    <td>3</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                </tr>
+                            <!-- строка - один предмет -->
+                            <tr th:each="schedule, index : ${schedules}"  th:if="${schedule.getDay() == 'суббота'}">
+                                <!-- Суббота -->
+                                <td th:text="${schedule.getLessonId()}"></td>
+                                <td th:text="${schedule.getAuditorium()}"></td>
+                                <td th:text="${schedule.getTime()}"></td>
+                            </tr>
                             </tbody>
                         </table>
                     </td>

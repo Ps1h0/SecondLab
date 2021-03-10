@@ -5,13 +5,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-/** Класс контроллер главной страницы приложения. Определен переход к аутентификации
+/**Class controller of main page of application. Defined transition to authentication
  * @author Nikita Platonov
  */
 @Controller
 public class MainController {
 
-    /** Метод перехода на главную страницу приложения
+    /** Transit to main page of application
      * @return index page
      */
     @RequestMapping("/")
@@ -19,9 +19,9 @@ public class MainController {
         return "index";
     }
 
-    /** Метод перехода на страницу аутентификации пользователя.
-     * @param error - для вывода сообщения об ошибке аутентификации
-     * @param model - для добавления данных на веб-страницу
+    /**Transit to user authentication page
+     * @param error - to display an authentication error message
+     * @param model - for add data to web-page
      * @see Model
      * @return sign in page
      */
